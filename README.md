@@ -19,6 +19,9 @@
 - Unit test 
 
 ## Libraries
-- RxSwift : Storyboard, Programmatically 
-- Combine : SwiftUI
+- RxSwift : Storyboard, Programmatically (SwiftUI uses Combine)
 - Realm
+- DIKit
+
+## Rules
+- Libraries are managed by Swift Package Manager
