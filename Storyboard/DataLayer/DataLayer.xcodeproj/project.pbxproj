@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,9 @@
 		2D2419DF460E90A54A74735B /* libDomainLayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57382EE1FFDE7019F3ADB121 /* libDomainLayer.a */; };
 		33E8C4C4CAA399715B2016B7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 169E3B8FB52BD441B5EF9D27 /* RxSwift */; };
 		63FC9BCAB98CAE025119E2D4 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD8AD897A86B35FE405A44E /* DataLayer.framework */; };
+		6498140C27A7890A00327D09 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6498140B27A7890A00327D09 /* DataLayer.swift */; };
 		A110D8B04027B1B549BB52CF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 88FE68172AC991DFEE02905E /* RxCocoa */; };
-		EDC74A269F4A44D1192CFFDF /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = C77AE1987A165BC550A96E44 /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDC74A269F4A44D1192CFFDF /* DataLayer-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = C77AE1987A165BC550A96E44 /* DataLayer-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +31,13 @@
 		0FAEE50BB3677F4D144A22D0 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		287E1A363DFF99C548CE9AF0 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DataLayer; path = .; sourceTree = SOURCE_ROOT; };
 		57382EE1FFDE7019F3ADB121 /* libDomainLayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDomainLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CD8AD897A86B35FE405A44E /* DataLayer.framework */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6498140B27A7890A00327D09 /* DataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
+		6CD8AD897A86B35FE405A44E /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8646A3202217F7A0F3FF96B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8785420C3D7F0CA086ABC7EC /* DataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerTests.swift; sourceTree = "<group>"; };
 		AB78DAF336D1F58D0109678C /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		C77AE1987A165BC550A96E44 /* DataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLayer.h; sourceTree = "<group>"; };
-		DB0C040EDA363D0B0B773E61 /* DataLayerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77AE1987A165BC550A96E44 /* DataLayer-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataLayer-Swift.h"; sourceTree = "<group>"; };
+		DB0C040EDA363D0B0B773E61 /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 		C160946F8BCEE0853180585B /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				C77AE1987A165BC550A96E44 /* DataLayer.h */,
+				C77AE1987A165BC550A96E44 /* DataLayer-Swift.h */,
 				00E3F039380750429F4120CE /* Info.plist */,
+				6498140B27A7890A00327D09 /* DataLayer.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -132,7 +135,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDC74A269F4A44D1192CFFDF /* DataLayer.h in Headers */,
+				EDC74A269F4A44D1192CFFDF /* DataLayer-Swift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +189,7 @@
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					14B5BE4678879CA1353A531D = {
+						LastSwiftMigration = 1300;
 						ProvisioningStyle = Manual;
 					};
 					A16D67D2653A72DF9EFB275C = {
@@ -227,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6498140C27A7890A00327D09 /* DataLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +249,7 @@
 		57A09F73519FA3D094108E6A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -258,6 +264,7 @@
 		79AFCD13C04DFAF9736175C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -271,6 +278,8 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DataLayer/DataLayer-Swift.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -278,6 +287,7 @@
 		9FD467684B557CDF3D141357 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -291,6 +301,9 @@
 				);
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DataLayer/DataLayer-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -298,6 +311,7 @@
 		B1DFE48A5F0791C088CCB995 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DataLayerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
