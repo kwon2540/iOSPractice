@@ -7,12 +7,10 @@
 
 import Foundation
 import RxSwift
-import DataLayer
 
 public final class DomainLayer {
 
     public static var shared = DomainLayer()
-    private let dataLayer = DataLayer.shared
     
     private init() { }
     

@@ -12,10 +12,12 @@ import DomainLayer
 public final class DataLayer {
 
     public static var shared = DataLayer()
+    private let domainLayer = DomainLayer.shared
     
     private init() { }
     
     public func testRun() {
+        print("DataLayer: \(domainLayer.testRun())")
         print("DataLayer: OK...")
     }
 }

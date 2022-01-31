@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import DomainLayer
+import DataLayer
 
 class ViewController: UIViewController {
+    
+    private let domainLayer = DomainLayer.shared
+    private let dataLayer = DataLayer.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        domainLayer.testRun()
+        dataLayer.testRun()
+        
     }
-
-
 }
 
