@@ -1,0 +1,21 @@
+//
+//  Default.xcconfig
+//  PoC
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Assigning variables based on build configuration name:
+// https://pewpewthespells.com/blog/xcconfig_guide.html#VariableSubstitution
+
+PRODUCT_BUNDLE_IDENTIFIER_PRODUCT_NAME = My.$(TARGET_NAME)
+PRODUCT_BUNDLE_IDENTIFIER_Release = jp.co.ios.$(PRODUCT_BUNDLE_IDENTIFIER_PRODUCT_NAME)
+PRODUCT_BUNDLE_IDENTIFIER_Debug  = com.ios.$(PRODUCT_BUNDLE_IDENTIFIER_Release)
+PRODUCT_BUNDLE_IDENTIFIER = $(PRODUCT_BUNDLE_IDENTIFIER_$(CONFIGURATION))
+
+CURRENT_PROJECT_VERSION = 1.0
+
+CODE_SIGN_STYLE = Manual
+
+TARGETED_DEVICE_FAMILY = 1
