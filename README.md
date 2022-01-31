@@ -34,3 +34,6 @@
 
 ## Rules
 - Libraries are managed by Swift Package Manager
+- Storyboard : Xcodegen + RxSwift
+- Programmatically : Tuist + RxSwift
+- SwiftUI : Combine + 
