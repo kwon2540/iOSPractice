@@ -1,0 +1,22 @@
+name: DomainLayer
+
+include:
+  - path: ../ProjectCommon.yml
+
+targets:
+  DomainLayer:
+    templates:
+      - WithUnitTest
+    platform: iOS
+    type: library.static
+    sources: DomainLayer
+    dependencies:
+      - package: RxSwift
+      - package: RxCocoa
+  DomainLayerTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: DomainLayerTests
+    dependencies:
+      - target: DomainLayer
+        embed: false
