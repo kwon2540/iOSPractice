@@ -24,7 +24,7 @@
 - Entity: Raw data directly recieved from server or databases.
 
 ## Additional task
-- Modular architecture
+- Modular architecture (SPM)
 - Unit test 
 
 ## Libraries
@@ -34,6 +34,6 @@
 
 ## Rules
 - Libraries are managed by Swift Package Manager
-- Storyboard : Xcodegen + RxSwift
-- Programmatically : Tuist + RxSwift
-- SwiftUI : Combine + 
+- Storyboard : RxSwift
+- Programmatically : RxSwift
+- SwiftUI : Combine
