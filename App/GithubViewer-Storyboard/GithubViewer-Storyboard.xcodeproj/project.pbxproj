@@ -13,6 +13,9 @@
 		64878B4627AE345000F6E190 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64878B4427AE345000F6E190 /* Main.storyboard */; };
 		64878B4827AE345300F6E190 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64878B4727AE345300F6E190 /* Assets.xcassets */; };
 		64878B4B27AE345300F6E190 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64878B4927AE345300F6E190 /* LaunchScreen.storyboard */; };
+		64878B5727AE368B00F6E190 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B5627AE368B00F6E190 /* Data */; };
+		64878B5927AE368F00F6E190 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B5827AE368F00F6E190 /* Domain */; };
+		64878B5B27AE369300F6E190 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B5A27AE369300F6E190 /* Presentation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64878B5927AE368F00F6E190 /* Domain in Frameworks */,
+				64878B5B27AE369300F6E190 /* Presentation in Frameworks */,
+				64878B5727AE368B00F6E190 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +54,7 @@
 				64878B5227AE34B200F6E190 /* Presentation */,
 				64878B3D27AE345000F6E190 /* GithubViewer-Storyboard */,
 				64878B3C27AE345000F6E190 /* Products */,
+				64878B5527AE368B00F6E190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,13 @@
 			path = "GithubViewer-Storyboard";
 			sourceTree = "<group>";
 		};
+		64878B5527AE368B00F6E190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +103,11 @@
 			dependencies = (
 			);
 			name = "GithubViewer-Storyboard";
+			packageProductDependencies = (
+				64878B5627AE368B00F6E190 /* Data */,
+				64878B5827AE368F00F6E190 /* Domain */,
+				64878B5A27AE369300F6E190 /* Presentation */,
+			);
 			productName = "GithubViewer-Storyboard";
 			productReference = 64878B3B27AE345000F6E190 /* GithubViewer-Storyboard.app */;
 			productType = "com.apple.product-type.application";
@@ -364,6 +383,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		64878B5627AE368B00F6E190 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		64878B5827AE368F00F6E190 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		64878B5A27AE369300F6E190 /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Presentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 64878B3327AE345000F6E190 /* Project object */;
 }
