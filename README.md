@@ -29,11 +29,11 @@
 
 ## Libraries
 - RxSwift : Storyboard, Programmatically (SwiftUI uses Combine)
-- Realm
 - DIKit
+- Needle
 
 ## Rules
 - Libraries are managed by Swift Package Manager
-- Storyboard : RxSwift
-- Programmatically : RxSwift
+- Storyboard : RxSwift + DIKit
+- Programmatically : RxSwift + Needle
 - SwiftUI : Combine
