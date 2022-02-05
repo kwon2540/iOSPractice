@@ -16,6 +16,8 @@
 		64878B8F27AE45C400F6E190 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B8E27AE45C400F6E190 /* Data */; };
 		64878B9127AE45C800F6E190 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9027AE45C800F6E190 /* Domain */; };
 		64878B9327AE45CB00F6E190 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9227AE45CB00F6E190 /* Presentation */; };
+		64878B9627AE49EC00F6E190 /* DIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9527AE49EC00F6E190 /* DIKit */; };
+		64878B9A27AE4C1E00F6E190 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		64878B8A27AE451800F6E190 /* Presentation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Presentation; sourceTree = "<group>"; };
 		64878B8B27AE452E00F6E190 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		64878B8C27AE453A00F6E190 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
+		64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			files = (
 				64878B9127AE45C800F6E190 /* Domain in Frameworks */,
 				64878B9327AE45CB00F6E190 /* Presentation in Frameworks */,
+				64878B9627AE49EC00F6E190 /* DIKit in Frameworks */,
 				64878B8F27AE45C400F6E190 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +73,7 @@
 		64878B7527AE44C800F6E190 /* GithubViewer-Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				64878B9827AE4BC200F6E190 /* Resource */,
 				64878B7627AE44C800F6E190 /* AppDelegate.swift */,
 				64878B7827AE44C800F6E190 /* SceneDelegate.swift */,
 				64878B7A27AE44C800F6E190 /* ViewController.swift */,
@@ -87,6 +92,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		64878B9827AE4BC200F6E190 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +107,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64878B8727AE44CA00F6E190 /* Build configuration list for PBXNativeTarget "GithubViewer-Storyboard" */;
 			buildPhases = (
+				64878B9727AE4AE100F6E190 /* DIKit Run Script */,
 				64878B6F27AE44C800F6E190 /* Sources */,
 				64878B7027AE44C800F6E190 /* Frameworks */,
 				64878B7127AE44C800F6E190 /* Resources */,
@@ -107,6 +121,7 @@
 				64878B8E27AE45C400F6E190 /* Data */,
 				64878B9027AE45C800F6E190 /* Domain */,
 				64878B9227AE45CB00F6E190 /* Presentation */,
+				64878B9527AE49EC00F6E190 /* DIKit */,
 			);
 			productName = "GithubViewer-Storyboard";
 			productReference = 64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */;
@@ -136,6 +151,9 @@
 				Base,
 			);
 			mainGroup = 64878B6A27AE44C800F6E190;
+			packageReferences = (
+				64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */,
+			);
 			productRefGroup = 64878B7427AE44C800F6E190 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -158,6 +176,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		64878B9727AE4AE100F6E190 /* DIKit Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "DIKit Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which dikitgen >/dev/null; then\n$PRODUCT_NAME=GithubViewer-Storyboard\ndikitgen ${SRCROOT}/$PRODUCT_NAME > ${SRCROOT}/$PRODUCT_NAME/Resource/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		64878B6F27AE44C800F6E190 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -165,6 +204,7 @@
 			files = (
 				64878B7B27AE44C800F6E190 /* ViewController.swift in Sources */,
 				64878B7727AE44C800F6E190 /* AppDelegate.swift in Sources */,
+				64878B9A27AE4C1E00F6E190 /* AppResolver.generated.swift in Sources */,
 				64878B7927AE44C800F6E190 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +424,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ishkawa/DIKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		64878B8E27AE45C400F6E190 /* Data */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -396,6 +447,11 @@
 		64878B9227AE45CB00F6E190 /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Presentation;
+		};
+		64878B9527AE49EC00F6E190 /* DIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */;
+			productName = DIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
