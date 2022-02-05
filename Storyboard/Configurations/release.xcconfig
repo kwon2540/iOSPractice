@@ -1,8 +1,0 @@
-
-#include "common.xcconfig"
-
-ASSETCATALOG_COMPILER_APPICON_NAME = AppIconRelease
-
-//BACKEND_URL = https:/$()/www.mytestapp.thoughtbot.com
-//CONSUMER_KEY = ck_a57e4fa2e14c12f400371cf2951ec3dea5
-//CONSUMER_SECRET = cs_c847caa35ce1041e9c69d239141f1f63bb22b
