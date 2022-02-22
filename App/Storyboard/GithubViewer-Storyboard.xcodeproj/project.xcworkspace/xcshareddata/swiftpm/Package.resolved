@@ -14,9 +14,9 @@
         "package": "DIKit",
         "repositoryURL": "https://github.com/ishkawa/DIKit",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "4d1f26330645fe50f12cddde9ade8484f7115dcd",
-          "version": null
+          "version": "0.5.0"
         }
       },
       {
