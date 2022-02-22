@@ -14,6 +14,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(path: "Domain"),
+        .package(name: "DIKit", url: "https://github.com/ishkawa/DIKit", from: "0.5.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -22,6 +23,7 @@ let package = Package(
             name: "Data",
             dependencies: [
                 "Domain",
+                "DIKit",
             ]),
         .testTarget(
             name: "DataTests",

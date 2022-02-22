@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		642D17C927C0CF6C005FFD9A /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17C827C0CF6C005FFD9A /* SampleView.swift */; };
-		642D17CB27C0CF8D005FFD9A /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642D17CA27C0CF8D005FFD9A /* SampleView.xib */; };
-		642D17CE27C0D264005FFD9A /* AppResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17CD27C0D264005FFD9A /* AppResolver.swift */; };
-		642D17D027C0D2D7005FFD9A /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17CF27C0D2D7005FFD9A /* SampleViewController.swift */; };
-		642D17D227C0D30A005FFD9A /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17D127C0D30A005FFD9A /* SampleViewModel.swift */; };
-		642D17D427C0D323005FFD9A /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17D327C0D323005FFD9A /* SampleModel.swift */; };
 		642D17D727C0D3CC005FFD9A /* Sample+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17D627C0D3CC005FFD9A /* Sample+Extension.swift */; };
 		64878B7727AE44C800F6E190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B7627AE44C800F6E190 /* AppDelegate.swift */; };
 		64878B7927AE44C800F6E190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B7827AE44C800F6E190 /* SceneDelegate.swift */; };
@@ -23,17 +17,9 @@
 		64878B8F27AE45C400F6E190 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B8E27AE45C400F6E190 /* Data */; };
 		64878B9127AE45C800F6E190 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9027AE45C800F6E190 /* Domain */; };
 		64878B9327AE45CB00F6E190 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9227AE45CB00F6E190 /* Presentation */; };
-		64878B9627AE49EC00F6E190 /* DIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64878B9527AE49EC00F6E190 /* DIKit */; };
-		64878B9A27AE4C1E00F6E190 /* AppResolver.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		642D17C827C0CF6C005FFD9A /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
-		642D17CA27C0CF8D005FFD9A /* SampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
-		642D17CD27C0D264005FFD9A /* AppResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppResolver.swift; sourceTree = "<group>"; };
-		642D17CF27C0D2D7005FFD9A /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		642D17D127C0D30A005FFD9A /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
-		642D17D327C0D323005FFD9A /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		642D17D627C0D3CC005FFD9A /* Sample+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Extension.swift"; sourceTree = "<group>"; };
 		64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubViewer-Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64878B7627AE44C800F6E190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +32,6 @@
 		64878B8A27AE451800F6E190 /* Presentation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Presentation; sourceTree = "<group>"; };
 		64878B8B27AE452E00F6E190 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		64878B8C27AE453A00F6E190 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
-		64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppResolver.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +41,6 @@
 			files = (
 				64878B9127AE45C800F6E190 /* Domain in Frameworks */,
 				64878B9327AE45CB00F6E190 /* Presentation in Frameworks */,
-				64878B9627AE49EC00F6E190 /* DIKit in Frameworks */,
 				64878B8F27AE45C400F6E190 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,18 +48,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		642D17CC27C0D23D005FFD9A /* Sample */ = {
-			isa = PBXGroup;
-			children = (
-				642D17C827C0CF6C005FFD9A /* SampleView.swift */,
-				642D17CA27C0CF8D005FFD9A /* SampleView.xib */,
-				642D17CF27C0D2D7005FFD9A /* SampleViewController.swift */,
-				642D17D127C0D30A005FFD9A /* SampleViewModel.swift */,
-				642D17D327C0D323005FFD9A /* SampleModel.swift */,
-			);
-			path = Sample;
-			sourceTree = "<group>";
-		};
 		642D17D527C0D3BE005FFD9A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				642D17D527C0D3BE005FFD9A /* Extension */,
-				642D17CC27C0D23D005FFD9A /* Sample */,
-				64878B9827AE4BC200F6E190 /* Resource */,
 				64878B7627AE44C800F6E190 /* AppDelegate.swift */,
 				64878B7827AE44C800F6E190 /* SceneDelegate.swift */,
 				64878B7A27AE44C800F6E190 /* ViewController.swift */,
@@ -126,15 +96,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		64878B9827AE4BC200F6E190 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				64878B9927AE4C1E00F6E190 /* AppResolver.generated.swift */,
-				642D17CD27C0D264005FFD9A /* AppResolver.swift */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +119,6 @@
 				64878B8E27AE45C400F6E190 /* Data */,
 				64878B9027AE45C800F6E190 /* Domain */,
 				64878B9227AE45CB00F6E190 /* Presentation */,
-				64878B9527AE49EC00F6E190 /* DIKit */,
 			);
 			productName = "GithubViewer-Storyboard";
 			productReference = 64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */;
@@ -189,7 +149,6 @@
 			);
 			mainGroup = 64878B6A27AE44C800F6E190;
 			packageReferences = (
-				64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */,
 			);
 			productRefGroup = 64878B7427AE44C800F6E190 /* Products */;
 			projectDirPath = "";
@@ -206,7 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				64878B8327AE44CA00F6E190 /* LaunchScreen.storyboard in Resources */,
-				642D17CB27C0CF8D005FFD9A /* SampleView.xib in Resources */,
 				64878B8027AE44CA00F6E190 /* Assets.xcassets in Resources */,
 				64878B7E27AE44C800F6E190 /* Main.storyboard in Resources */,
 			);
@@ -231,7 +189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which dikitgen >/dev/null; then\n$PRODUCT_NAME=GithubViewer-Storyboard\ndikitgen ${SRCROOT}/$PRODUCT_NAME > ${SRCROOT}/$PRODUCT_NAME/Resource/AppResolver.generated.swift\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which dikitgen >/dev/null; then\n\ndikitgen ${SRCROOT}/Data/Sources > ${SRCROOT}/Data/Sources/Data/Resource/DataResolver.generated.swift\n\ndikitgen ${SRCROOT}/Domain/Sources > ${SRCROOT}/Domain/Sources/Domain/Resource/DomainResolver.generated.swift\n\ndikitgen ${SRCROOT}/Presentation/Sources > ${SRCROOT}/Presentation/Sources/Presentation/Resource/PresentationResolver.generated.swift\n\nelse\necho \"warning: dikitgen not installed, download from https://github.com/ishkawa/DIKit\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -241,15 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64878B7B27AE44C800F6E190 /* ViewController.swift in Sources */,
-				642D17D427C0D323005FFD9A /* SampleModel.swift in Sources */,
-				642D17C927C0CF6C005FFD9A /* SampleView.swift in Sources */,
 				64878B7727AE44C800F6E190 /* AppDelegate.swift in Sources */,
-				642D17CE27C0D264005FFD9A /* AppResolver.swift in Sources */,
 				642D17D727C0D3CC005FFD9A /* Sample+Extension.swift in Sources */,
-				64878B9A27AE4C1E00F6E190 /* AppResolver.generated.swift in Sources */,
 				64878B7927AE44C800F6E190 /* SceneDelegate.swift in Sources */,
-				642D17D227C0D30A005FFD9A /* SampleViewModel.swift in Sources */,
-				642D17D027C0D2D7005FFD9A /* SampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,17 +422,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ishkawa/DIKit";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		64878B8E27AE45C400F6E190 /* Data */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -493,11 +434,6 @@
 		64878B9227AE45CB00F6E190 /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Presentation;
-		};
-		64878B9527AE49EC00F6E190 /* DIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 64878B9427AE49EC00F6E190 /* XCRemoteSwiftPackageReference "DIKit" */;
-			productName = DIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

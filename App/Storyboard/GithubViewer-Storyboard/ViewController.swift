@@ -6,7 +6,5 @@
 //
 
 import UIKit
-import DIKit
 
-class ViewController: UIViewController { }
-
+class ViewController: UIViewController {}
