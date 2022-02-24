@@ -8,14 +8,6 @@
 import Foundation
 import RxSwift
 
-public protocol APIRequest {
-    associatedtype Response: Decodable
-    var baseURL: URL { get }
-    var path: String { get }
-    var queryItems: [URLQueryItem]? { get }
-    var decoder: JSONDecoder { get }
-}
-
 public enum APIError: Error {
     case invalidURL
     case responseError
