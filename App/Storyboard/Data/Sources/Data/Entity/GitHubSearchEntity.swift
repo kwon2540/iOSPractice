@@ -9,6 +9,7 @@ import Foundation
 import Domain
 
 public struct GitHubSearchEntity: Decodable {
+    
     public let items: [GitHubRepositoryEntity]
     
     func toModel() -> GitHubSearchModel {
@@ -17,6 +18,7 @@ public struct GitHubSearchEntity: Decodable {
 }
 
 public struct GitHubRepositoryEntity: Decodable {
+    
     public let id: Int
     public let name: String
     public let fullName: String
@@ -39,6 +41,7 @@ public struct GitHubRepositoryEntity: Decodable {
 }
 
 public struct GitHubRepositoryOwnerEntity: Decodable {
+    
     public let id: Int
     public let login: String
     public let avatarUrl: URL

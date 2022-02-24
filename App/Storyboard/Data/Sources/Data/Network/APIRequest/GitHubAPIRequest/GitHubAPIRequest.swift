@@ -7,8 +7,7 @@
 
 import Foundation
 
-public protocol GitHubAPIRequest: APIRequest {
-}
+public protocol GitHubAPIRequest: APIRequest {}
 
 public extension GitHubAPIRequest {
     var baseURL: URL { URL(string: "https://api.github.com")! }
