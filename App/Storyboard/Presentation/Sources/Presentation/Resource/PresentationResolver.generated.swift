@@ -5,6 +5,7 @@
 
 import DIKit
 import Foundation
+import RxSwift
 
 extension PresentationResolver {
 

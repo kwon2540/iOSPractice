@@ -1,4 +1,6 @@
 import DIKit
+import RxSwift
+
 
 public struct PresentationModel {
     let string: String
