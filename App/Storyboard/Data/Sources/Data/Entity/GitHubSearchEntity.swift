@@ -6,24 +6,28 @@
 //
 
 import Foundation
+import Domain
 
-public struct GitHubSearchResponse: Decodable {
-    public let items: [GitHubRepository]
+public struct GitHubSearchEntity: Decodable {
+    public let items: [GitHubRepositoryEntity]
+    
 }
 
-public struct GitHubRepository: Decodable {
+public struct GitHubRepositoryEntity: Decodable {
     public let id: Int
     public let name: String
     public let fullName: String
-    public let owner: GitHubRepositoryOwner
+    public let owner: GitHubRepositoryOwnerEntity
     public let htmlUrl: URL
     public let description: String?
     public let language: String?
     public let stargazersCount: Int
+    
 }
 
-public struct GitHubRepositoryOwner: Decodable {
+public struct GitHubRepositoryOwnerEntity: Decodable {
     public let id: Int
     public let login: String
     public let avatarUrl: URL
+    
 }

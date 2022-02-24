@@ -10,7 +10,7 @@ import Foundation
 /// GitHub Search API Request
 /// Sample URL: https://api.github.com/search/repositories\?q=topic:ios+language:swift+stars:\>\=1000\&sort\=stars\&order\=desc
 public struct GitHubSearchAPIRequest: GitHubAPIRequest {
-    public typealias Response = GitHubSearchResponse
+    public typealias Response = GitHubSearchEntity
 
     public var path: String = "/search/repositories"
 
