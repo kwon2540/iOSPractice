@@ -4,9 +4,15 @@
 //
 
 import DIKit
+import Domain
 import Foundation
+import RxSwift
 
 extension DataResolver {
+
+    func resolveDefaultGithubRepository() -> DefaultGithubRepository {
+        return DefaultGithubRepository(dependency: .init())
+    }
 
 }
 

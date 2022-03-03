@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		642D17D727C0D3CC005FFD9A /* Sample+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642D17D627C0D3CC005FFD9A /* Sample+Extension.swift */; };
+		645E94C427CF51D000E42C17 /* DomainResolverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E94C327CF51D000E42C17 /* DomainResolverImpl.swift */; };
 		64878B7727AE44C800F6E190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B7627AE44C800F6E190 /* AppDelegate.swift */; };
 		64878B7927AE44C800F6E190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B7827AE44C800F6E190 /* SceneDelegate.swift */; };
 		64878B7B27AE44C800F6E190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64878B7A27AE44C800F6E190 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		642D17D627C0D3CC005FFD9A /* Sample+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sample+Extension.swift"; sourceTree = "<group>"; };
+		645E94C327CF51D000E42C17 /* DomainResolverImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainResolverImpl.swift; sourceTree = "<group>"; };
 		64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubViewer-Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64878B7627AE44C800F6E190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64878B7827AE44C800F6E190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		645E94C227CF51B200E42C17 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				645E94C327CF51D000E42C17 /* DomainResolverImpl.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		64878B6A27AE44C800F6E190 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		64878B7527AE44C800F6E190 /* GithubViewer-Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				645E94C227CF51B200E42C17 /* Resource */,
 				642D17D527C0D3BE005FFD9A /* Extension */,
 				64878B7627AE44C800F6E190 /* AppDelegate.swift */,
 				64878B7827AE44C800F6E190 /* SceneDelegate.swift */,
@@ -202,6 +213,7 @@
 				64878B7727AE44C800F6E190 /* AppDelegate.swift in Sources */,
 				642D17D727C0D3CC005FFD9A /* Sample+Extension.swift in Sources */,
 				64878B7927AE44C800F6E190 /* SceneDelegate.swift in Sources */,
+				645E94C427CF51D000E42C17 /* DomainResolverImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

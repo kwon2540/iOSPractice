@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ishkawa/DIKit", from: "0.5.0"),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .exact("6.5.0")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -21,6 +22,7 @@ let package = Package(
             name: "Domain",
             dependencies: [
                 .product(name: "DIKit", package: "DIKit"),
+                .product(name: "RxSwift", package: "RxSwift"),
             ]),
         .testTarget(
             name: "DomainTests",
