@@ -13,11 +13,9 @@ public protocol DomainResolver: Resolver {
    
 }
 
-public final class DomainResolverImpl: DomainResolver {
+public extension DomainResolver {
     
-    public init() { }
-    
-    public func provideDomainModel() -> DomainModel {
-        return DomainModel(string: "Hello Domain!")
+    func resolveGithubSearchUseCase() -> GitHubSearchUseCase {
+        resolveDefaultGitHubSearchUseCase()
     }
 }
