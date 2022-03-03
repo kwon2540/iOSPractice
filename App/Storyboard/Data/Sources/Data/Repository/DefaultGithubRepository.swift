@@ -8,8 +8,13 @@
 import Foundation
 import Domain
 import RxSwift
+import DIKit
 
-public final class DefaultGithubRepository: GithubRepository {
+public final class DefaultGithubRepository: GithubRepository, Injectable {
+    
+    public struct Dependency {}
+    
+    public init(dependency: Dependency) { }
     
     public func fetch(keyword: String) -> Single<GitHubSearchModel> {
         GitHubSearchAPIRequest(keyword: keyword)
