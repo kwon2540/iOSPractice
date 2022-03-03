@@ -5,18 +5,8 @@
 
 import DIKit
 import Foundation
-import RxSwift
 
 extension PresentationResolver {
-
-    func resolvePresentation() -> Presentation {
-        let presentationModel = resolvePresentationModel()
-        return Presentation(dependency: .init(model: presentationModel))
-    }
-
-    func resolvePresentationModel() -> PresentationModel {
-        return providePresentationModel()
-    }
 
 }
 
