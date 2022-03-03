@@ -9,14 +9,9 @@ import Foundation
 import DIKit
 
 public protocol PresentationResolver: Resolver {
-    func providePresentationModel() -> PresentationModel
 }
 
 public final class PresentationResolverImpl: PresentationResolver {
     
     public init() { }
-    
-    public func providePresentationModel() -> PresentationModel {
-        return PresentationModel(string: "Hello Presentation!")
-    }
 }
