@@ -5,16 +5,17 @@
 
 import DIKit
 import Foundation
+import RxSwift
 
 extension DomainResolver {
 
-    func resolveDomain() -> Domain {
-        let domainModel = resolveDomainModel()
-        return Domain(dependency: .init(model: domainModel))
+    func resolveDefaultGitHubSearchUseCase() -> DefaultGitHubSearchUseCase {
+        let githubRepository = resolveGithubRepository()
+        return DefaultGitHubSearchUseCase(dependency: .init(repository: githubRepository))
     }
 
-    func resolveDomainModel() -> DomainModel {
-        return provideDomainModel()
+    func resolveGithubRepository() -> GithubRepository {
+        return provideGithubRepository()
     }
 
 }

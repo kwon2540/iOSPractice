@@ -9,7 +9,8 @@ import Foundation
 import DIKit
 
 public protocol DomainResolver: Resolver {
-    func provideDomainModel() -> DomainModel
+    func provideGithubRepository() -> GithubRepository
+   
 }
 
 public final class DomainResolverImpl: DomainResolver {
