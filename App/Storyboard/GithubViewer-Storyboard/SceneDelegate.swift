@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Presentation
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        let viewController = ViewController()
+        let rootResolver = RootResolverImpl()
+        
+        let viewController = rootResolver.resolveRoot()
         window.rootViewController = viewController
         window.makeKeyAndVisible()
     }
