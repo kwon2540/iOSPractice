@@ -13,6 +13,13 @@ final class ListView: UIView {
     
     @IBAction func buttonPressed(_ sender: Any) {
         
+        viewModel.showLoading()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.viewModel.hideLoading()
+        }
+    }
+    
     init(viewModel: ListViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)

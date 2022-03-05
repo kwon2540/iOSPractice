@@ -31,4 +31,11 @@ public class BaseViewModel: BaseViewModelType {
         _loadingState.asObservable()
     }
     
+    func showLoading() {
+        _loadingState.accept(.loading)
+    }
+    
+    func hideLoading() {
+        _loadingState.accept(.completed)
+    }
 }
