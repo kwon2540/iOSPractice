@@ -8,5 +8,7 @@
 import Foundation
 
 public class BaseViewModel {
+public typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
+public class BaseViewModel: BaseViewModelType {
     
 }

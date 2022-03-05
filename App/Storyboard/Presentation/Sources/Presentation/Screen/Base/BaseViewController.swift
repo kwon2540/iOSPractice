@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BaseViewController<T: BaseViewModel>: UIViewController {
+public class BaseViewController<T: BaseViewModelType>: UIViewController {
     
     var viewModel: T!
   
