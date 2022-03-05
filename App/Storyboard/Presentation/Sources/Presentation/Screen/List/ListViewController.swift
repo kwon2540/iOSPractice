@@ -24,7 +24,7 @@ public final class ListViewController: BaseViewController<ListViewModel>, Inject
     }
     
     public override func loadView() {
-        view = ListView()
+        view = ListView(viewModel: viewModel)
     }
 }
 

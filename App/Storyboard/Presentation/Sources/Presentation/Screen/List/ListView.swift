@@ -9,7 +9,18 @@ import UIKit
 
 final class ListView: UIView {
     
+    private let viewModel: ListViewModel
+    
     @IBAction func buttonPressed(_ sender: Any) {
         
+    init(viewModel: ListViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
+        
+        loadOwnedXib()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
