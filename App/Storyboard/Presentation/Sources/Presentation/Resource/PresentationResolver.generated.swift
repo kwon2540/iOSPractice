@@ -27,5 +27,14 @@ extension PresentationResolver {
         return ListViewModel(dependency: .init())
     }
 
+    func resolvePresentationResolver() -> PresentationResolver {
+        return providePresentationResolver()
+    }
+
+    func resolveRootViewController() -> RootViewController {
+        let presentationResolver = resolvePresentationResolver()
+        return RootViewController(dependency: .init(resolver: presentationResolver))
+    }
+
 }
 
