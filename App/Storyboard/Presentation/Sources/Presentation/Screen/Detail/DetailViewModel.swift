@@ -9,7 +9,7 @@ import Foundation
 import DIKit
 
 public class DetailViewModel: BaseViewModel, Injectable {
-    
+
     public struct Dependency {}
     
     required public init(dependency: Dependency) { }
