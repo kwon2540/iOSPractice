@@ -18,7 +18,7 @@ public struct BehaviorRelayWrapper<T> {
         relay.asObservable()
     }
     
-    init(value: T) {
+    public init(value: T) {
         self.relay = BehaviorRelay(value: value)
     }
     
@@ -31,4 +31,24 @@ public struct BehaviorRelayWrapper<T> {
     }
 }
 
-
+/// PublishSubject<T> Wrapped as Observable<T>
+@propertyWrapper
+public struct PublishSubjectWrapper<T> {
+    
+    private let subject: PublishSubject<T>
+    private var observable: Observable<T> {
+        subject.asObservable()
+    }
+    
+    public init() {
+        self.subject = PublishSubject<T>()
+    }
+    
+    public var projectedValue: PublishSubject<T> {
+        subject
+    }
+    
+    public var wrappedValue: Observable<T> {
+        observable
+    }
+}
