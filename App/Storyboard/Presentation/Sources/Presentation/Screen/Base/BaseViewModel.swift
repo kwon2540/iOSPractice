@@ -26,16 +26,14 @@ public typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
 // MARK: Concrete Implementation
 public class BaseViewModel: BaseViewModelType {
     
-    private let _loadingState = BehaviorRelay<LoadingState>(value: .initial)
-    public var loadingState: Observable<LoadingState> {
-        _loadingState.asObservable()
-    }
+    @BehaviorRelayWrapper<LoadingState>(value: .initial)
+    public var loadingState: Observable<LoadingState>
     
     func showLoading() {
-        _loadingState.accept(.loading)
+        $loadingState.accept(.loading)
     }
     
     func hideLoading() {
-        _loadingState.accept(.completed)
+        $loadingState.accept(.completed)
     }
 }
