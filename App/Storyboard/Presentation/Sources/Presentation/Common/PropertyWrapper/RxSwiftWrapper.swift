@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+/// BehaviorRelay<T> wrapped as Observable<T>
 @propertyWrapper
 public struct BehaviorRelayWrapper<T> {
     
@@ -29,3 +30,5 @@ public struct BehaviorRelayWrapper<T> {
         observable
     }
 }
+
+
