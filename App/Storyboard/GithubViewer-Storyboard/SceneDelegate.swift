@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         
         let rootResolver = RootResolverImpl()
+        let repositoryResolver = RepositoryResolverImpl()
+        let domainResolver = DomainResolverImpl(repositoryResolver: repositoryResolver)
         
         let viewController = rootResolver.resolveRoot()
         window.rootViewController = viewController
