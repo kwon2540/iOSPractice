@@ -7,11 +7,34 @@
 
 import Foundation
 import DIKit
+import Domain
 
-public protocol PresentationResolver: Resolver {
+// MARK: Public Interface for exporting RootViewController outside Presentation Module
+public protocol RootResolver {
+
+    func resolveRoot() -> RootViewController
 }
 
-public final class PresentationResolverImpl: PresentationResolver {
+// MARK: Internal DIKit Resolver interface for Presentation Module
+public protocol PresentationResolver: Resolver, RootResolver {
     
-    public init() { }
+    // MARK: For providing necessary class for ViewController
+    func providePresentationResolver() -> PresentationResolver
+    
+    // MARK: For importing useCase to Presentation Layer
+    func provideGitHubSearchUseCase() -> GitHubSearchUseCase
+}
+
+public extension PresentationResolver {
+    
+    func resolveRoot() -> RootViewController {
+        resolveRootViewController()
+    }
+}
+
+public extension PresentationResolver {
+    
+    func providePresentationResolver() -> PresentationResolver {
+        self
+    }
 }

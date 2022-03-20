@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol APIRequest {
+    
     associatedtype Response: Decodable
     var baseURL: URL { get }
     var path: String { get }

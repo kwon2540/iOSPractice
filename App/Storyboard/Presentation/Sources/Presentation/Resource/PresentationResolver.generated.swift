@@ -4,6 +4,7 @@
 //
 
 import DIKit
+import Domain
 import Foundation
 import UIKit
 
@@ -18,13 +19,27 @@ extension PresentationResolver {
         return DetailViewModel(dependency: .init())
     }
 
+    func resolveGitHubSearchUseCase() -> GitHubSearchUseCase {
+        return provideGitHubSearchUseCase()
+    }
+
     func resolveListViewController() -> ListViewController {
         let listViewModel = resolveListViewModel()
         return ListViewController(dependency: .init(viewModel: listViewModel))
     }
 
     func resolveListViewModel() -> ListViewModel {
-        return ListViewModel(dependency: .init())
+        let gitHubSearchUseCase = resolveGitHubSearchUseCase()
+        return ListViewModel(dependency: .init(searchUseCase: gitHubSearchUseCase))
+    }
+
+    func resolvePresentationResolver() -> PresentationResolver {
+        return providePresentationResolver()
+    }
+
+    func resolveRootViewController() -> RootViewController {
+        let presentationResolver = resolvePresentationResolver()
+        return RootViewController(dependency: .init(resolver: presentationResolver))
     }
 
 }

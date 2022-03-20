@@ -10,6 +10,7 @@ import RxSwift
 import DIKit
 
 public protocol GitHubSearchUseCase {
+    
     func execute(keyword: String) -> Single<GitHubSearchModel>
 }
 
@@ -26,6 +27,6 @@ public final class DefaultGitHubSearchUseCase: GitHubSearchUseCase, Injectable {
     }
     
     public func execute(keyword: String) -> Single<GitHubSearchModel> {
-        fatalError()
+        fatalError("OKKKKKKKK")
     }
 }
