@@ -12,8 +12,16 @@ import DIKit
 public class ListViewModel: BaseViewModel, Injectable {
     
     public struct Dependency {
-//        let searchUseCase: GitHubSearchUseCase
+        let searchUseCase: GitHubSearchUseCase
     }
     
-    required public init(dependency: Dependency) { }
+    private let searchUseCase: GitHubSearchUseCase
+    
+    required public init(dependency: Dependency) {
+        self.searchUseCase = dependency.searchUseCase
+    }
+    
+    func crash() {
+        searchUseCase.execute(keyword: "")
+    }
 }

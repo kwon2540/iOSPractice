@@ -21,6 +21,7 @@ final class ListView: UIView {
         loadOwnedXib()
         setup()
         
+        viewModel.crash()
     }
     
     required init?(coder: NSCoder) {
