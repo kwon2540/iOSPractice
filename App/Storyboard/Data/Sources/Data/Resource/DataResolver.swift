@@ -22,6 +22,8 @@ internal protocol DataResolver: Resolver {
 // MARK: Concrete Implementation for RepositoryResolver
 public final class RepositoryResolverImpl: RepositoryResolver {
     
+    public init() {}
+    
     public func resolveGithubRepository() -> DefaultGithubRepository {
         resolveDefaultGithubRepository()
     }
