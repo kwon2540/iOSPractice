@@ -9,25 +9,45 @@ import UIKit
 
 final class ListView: UIView {
     
-    private let viewModel: ListViewModel
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
     
-    @IBAction func buttonPressed(_ sender: Any) {
-        
-        viewModel.showLoading()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.viewModel.hideLoading()
-        }
-    }
+    private let viewModel: ListViewModel
     
     init(viewModel: ListViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         
         loadOwnedXib()
+        setup()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ListView {
+    
+    private func setup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+extension ListView: UITableViewDelegate {
+    
+}
+
+
+extension ListView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
     }
 }

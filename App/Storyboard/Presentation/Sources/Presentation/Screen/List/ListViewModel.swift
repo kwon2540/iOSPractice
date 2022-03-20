@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import Domain
 import DIKit
 
 public class ListViewModel: BaseViewModel, Injectable {
     
-    public struct Dependency {}
+    public struct Dependency {
+//        let searchUseCase: GitHubSearchUseCase
+    }
     
     required public init(dependency: Dependency) { }
 }
