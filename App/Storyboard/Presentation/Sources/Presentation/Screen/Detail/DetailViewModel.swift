@@ -8,7 +8,7 @@
 import Foundation
 import DIKit
 
-public class DetailViewModel: BaseViewModel, Injectable {
+class DetailViewModel: BaseViewModel, Injectable {
 
     public struct Dependency {}
     

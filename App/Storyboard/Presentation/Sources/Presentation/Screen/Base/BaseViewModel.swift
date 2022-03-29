@@ -10,30 +10,30 @@ import RxCocoa
 import RxSwift
 
 // MARK: Inputs
-public protocol BaseViewModelInputs {
+protocol BaseViewModelInputs {
     
 }
 
 // MARK: Outputs
-public protocol BaseViewModelOutputs {
+protocol BaseViewModelOutputs {
     
     var loadingState: Observable<LoadingState> { get }
+    
+    var showError: Observable<Error> { get }
 }
 
 // MARK: Inputs & Outputs
-public typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
+typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
 
 // MARK: Concrete Implementation
-public class BaseViewModel: BaseViewModelType {
+class BaseViewModel: BaseViewModelType {
+    // MARK: Outputs
+    @PublishSubjectWrapper<LoadingState>
+    var loadingState: Observable<LoadingState>
     
-    @BehaviorRelayWrapper<LoadingState>(value: .initial)
-    public var loadingState: Observable<LoadingState>
+    @PublishSubjectWrapper<Error>
+    var showError: Observable<Error>
     
-    func showLoading() {
-        $loadingState.accept(.loading)
-    }
-    
-    func hideLoading() {
-        $loadingState.accept(.completed)
-    }
+    // MARK: Properties
+    public let disposeBag = DisposeBag()
 }

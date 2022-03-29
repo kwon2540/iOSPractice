@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Domain
+import RxSwift
 
 final class ListView: UIView {
     
@@ -13,6 +15,16 @@ final class ListView: UIView {
     @IBOutlet private weak var tableView: UITableView!
     
     private let viewModel: ListViewModel
+    private let disposeBag = DisposeBag()
+    
+    private var repositories: [GitHubRepositoryModel] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     init(viewModel: ListViewModel) {
         self.viewModel = viewModel
@@ -20,8 +32,7 @@ final class ListView: UIView {
         
         loadOwnedXib()
         setup()
-        
-        viewModel.crash()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +48,20 @@ extension ListView {
     }
 }
 
+extension ListView {
+    
+    private func bind() {
+        viewModel.repositories
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] repositories in
+                guard let self = self else { return }
+                
+                self.repositories = repositories
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
 extension ListView: UITableViewDelegate {
     
 }
@@ -45,10 +70,12 @@ extension ListView: UITableViewDelegate {
 extension ListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        repositories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = repositories[indexPath.row].fullName
+        return cell
     }
 }

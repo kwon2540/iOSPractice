@@ -8,20 +8,65 @@
 import Foundation
 import Domain
 import DIKit
+import RxSwift
+import RxCocoa
 
-public class ListViewModel: BaseViewModel, Injectable {
+// MARK: Inputs
+protocol ListViewModelInputs {
     
-    public struct Dependency {
+    var didEnterSearchKeyword: AnyObserver<String> { get }
+}
+
+// MARK: Outputs
+protocol ListViewModelOutputs {
+    
+    var repositories: Observable<[GitHubRepositoryModel]> { get }
+}
+
+typealias ListViewModelType = ListViewModelInputs & ListViewModelOutputs
+
+class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
+    
+    struct Dependency {
         let searchUseCase: GitHubSearchUseCase
     }
     
+    // MARK: Inputs
+    private let _didEnterSearchKeyword = PublishSubject<String>()
+    var didEnterSearchKeyword: AnyObserver<String> {
+        _didEnterSearchKeyword.asObserver()
+    }
+    
+    // MARK: Outputs
+    @BehaviorRelayWrapper<[GitHubRepositoryModel]>(value: [])
+    var repositories: Observable<[GitHubRepositoryModel]>
+    
+    
+    
+    // MARK: Properties
     private let searchUseCase: GitHubSearchUseCase
     
     required public init(dependency: Dependency) {
         self.searchUseCase = dependency.searchUseCase
+        super.init()
     }
     
-    func crash() {
-        searchUseCase.execute(keyword: "")
+    func fetchRepositoryList(for keyword: String) {
+        $loadingState.onNext(.loading)
+        
+        searchUseCase.execute(keyword: keyword)
+            .subscribe(on: MainScheduler.instance)
+            .subscribe { [weak self] searchModel in
+                guard let self = self else { return }
+                
+                self.$repositories.accept(searchModel.items)
+                self.$loadingState.onNext(.completed)
+            } onFailure: { [weak self] error in
+                guard let self = self else { return }
+                
+                self.$showError.onNext(error)
+                self.$loadingState.onNext(.completed)
+            }
+            .disposed(by: disposeBag)
     }
 }

@@ -42,7 +42,7 @@ public extension APIRequest {
         
         return Single.create(subscribe: { single -> Disposable in
             
-            URLSession.shared.dataTask(with: request) { data, response, error in
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 
                 if error != nil  {
                     single(.failure(APIError.responseError))
@@ -62,7 +62,10 @@ public extension APIRequest {
                 }
             }
             
+            task.resume()
+            
             return Disposables.create()
-        }).subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+        })
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
     }
 }

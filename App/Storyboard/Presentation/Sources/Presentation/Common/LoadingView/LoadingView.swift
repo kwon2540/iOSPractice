@@ -24,14 +24,22 @@ final class LoadingView: UIView {
     }
     
     func start() {
-        alpha = 1
-        activityIndicator.startAnimating()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            self.alpha = 1
+            self.activityIndicator.startAnimating()
+        }
     }
     
     func stop() {
-        if activityIndicator.isAnimating {
-            activityIndicator.stopAnimating()
-            alpha = 0
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()
+                self.alpha = 0
+            }
         }
     }
 }

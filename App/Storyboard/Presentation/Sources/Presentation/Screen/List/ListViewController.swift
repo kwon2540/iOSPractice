@@ -8,7 +8,7 @@
 import UIKit
 import DIKit
 
-public final class ListViewController: BaseViewController<ListViewModel>, Injectable {
+final class ListViewController: BaseViewController<ListViewModel>, Injectable {
     
     public struct Dependency {
         let viewModel: ListViewModel
@@ -25,6 +25,12 @@ public final class ListViewController: BaseViewController<ListViewModel>, Inject
     
     public override func loadView() {
         view = ListView(viewModel: viewModel)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.fetchRepositoryList(for: "swift")
     }
 }
 
