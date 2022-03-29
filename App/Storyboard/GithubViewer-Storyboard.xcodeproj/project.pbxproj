@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		645E94C327CF51D000E42C17 /* DomainResolverImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainResolverImpl.swift; sourceTree = "<group>"; };
-		64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubViewer-Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64878B7327AE44C800F6E190 /* GitHubViewer-Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubViewer-Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64878B7627AE44C800F6E190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64878B7827AE44C800F6E190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		64878B7A27AE44C800F6E190 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 				64878B8C27AE453A00F6E190 /* Data */,
 				64878B8B27AE452E00F6E190 /* Domain */,
 				64878B8A27AE451800F6E190 /* Presentation */,
-				64878B7527AE44C800F6E190 /* GithubViewer-Storyboard */,
+				64878B7527AE44C800F6E190 /* GitHubViewer-Storyboard */,
 				64878B7427AE44C800F6E190 /* Products */,
 				64878B8D27AE45C400F6E190 /* Frameworks */,
 			);
@@ -74,12 +74,12 @@
 		64878B7427AE44C800F6E190 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */,
+				64878B7327AE44C800F6E190 /* GitHubViewer-Storyboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64878B7527AE44C800F6E190 /* GithubViewer-Storyboard */ = {
+		64878B7527AE44C800F6E190 /* GitHubViewer-Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				645E94C227CF51B200E42C17 /* Resource */,
@@ -91,7 +91,7 @@
 				64878B8127AE44CA00F6E190 /* LaunchScreen.storyboard */,
 				64878B8427AE44CA00F6E190 /* Info.plist */,
 			);
-			path = "GithubViewer-Storyboard";
+			path = "GitHubViewer-Storyboard";
 			sourceTree = "<group>";
 		};
 		64878B8D27AE45C400F6E190 /* Frameworks */ = {
@@ -104,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		64878B7227AE44C800F6E190 /* GithubViewer-Storyboard */ = {
+		64878B7227AE44C800F6E190 /* GitHubViewer-Storyboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64878B8727AE44CA00F6E190 /* Build configuration list for PBXNativeTarget "GithubViewer-Storyboard" */;
+			buildConfigurationList = 64878B8727AE44CA00F6E190 /* Build configuration list for PBXNativeTarget "GitHubViewer-Storyboard" */;
 			buildPhases = (
 				64878B9727AE4AE100F6E190 /* DIKit Run Script */,
 				64878B6F27AE44C800F6E190 /* Sources */,
@@ -117,14 +117,14 @@
 			);
 			dependencies = (
 			);
-			name = "GithubViewer-Storyboard";
+			name = "GitHubViewer-Storyboard";
 			packageProductDependencies = (
 				64878B8E27AE45C400F6E190 /* Data */,
 				64878B9027AE45C800F6E190 /* Domain */,
 				64878B9227AE45CB00F6E190 /* Presentation */,
 			);
 			productName = "GithubViewer-Storyboard";
-			productReference = 64878B7327AE44C800F6E190 /* GithubViewer-Storyboard.app */;
+			productReference = 64878B7327AE44C800F6E190 /* GitHubViewer-Storyboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -142,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 64878B6E27AE44C800F6E190 /* Build configuration list for PBXProject "GithubViewer-Storyboard" */;
+			buildConfigurationList = 64878B6E27AE44C800F6E190 /* Build configuration list for PBXProject "GitHubViewer-Storyboard" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -157,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64878B7227AE44C800F6E190 /* GithubViewer-Storyboard */,
+				64878B7227AE44C800F6E190 /* GitHubViewer-Storyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -355,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GithubViewer-Storyboard/Info.plist";
+				INFOPLIST_FILE = "GitHubViewer-Storyboard/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -367,7 +367,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.practice.GithubViewer-Storyboard";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.practice.GitHubViewer-Storyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -383,7 +383,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GithubViewer-Storyboard/Info.plist";
+				INFOPLIST_FILE = "GitHubViewer-Storyboard/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -395,7 +395,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.practice.GithubViewer-Storyboard";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.practice.GitHubViewer-Storyboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -406,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		64878B6E27AE44C800F6E190 /* Build configuration list for PBXProject "GithubViewer-Storyboard" */ = {
+		64878B6E27AE44C800F6E190 /* Build configuration list for PBXProject "GitHubViewer-Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64878B8527AE44CA00F6E190 /* Debug */,
@@ -415,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64878B8727AE44CA00F6E190 /* Build configuration list for PBXNativeTarget "GithubViewer-Storyboard" */ = {
+		64878B8727AE44CA00F6E190 /* Build configuration list for PBXNativeTarget "GitHubViewer-Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64878B8827AE44CA00F6E190 /* Debug */,

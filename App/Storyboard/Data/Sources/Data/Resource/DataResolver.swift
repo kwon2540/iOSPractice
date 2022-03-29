@@ -11,7 +11,7 @@ import DIKit
 // MARK: Public Interface for exporting Repositories outside Data Module
 public protocol RepositoryResolver {
     
-    func resolveGithubRepository() -> DefaultGithubRepository
+    func resolveGitHubRepository() -> DefaultGitHubRepository
 }
 
 // MARK: Internal DIKit Resolver interface for Data Module
@@ -24,8 +24,8 @@ public final class RepositoryResolverImpl: RepositoryResolver {
     
     public init() {}
     
-    public func resolveGithubRepository() -> DefaultGithubRepository {
-        resolveDefaultGithubRepository()
+    public func resolveGitHubRepository() -> DefaultGitHubRepository {
+        resolveDefaultGitHubRepository()
     }
 }
 

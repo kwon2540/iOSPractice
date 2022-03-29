@@ -1,6 +1,6 @@
 //
 //  DomainResolverImpl.swift
-//  GithubViewer-Storyboard
+//  GitHubViewer-Storyboard
 //
 //  Created by Maharjan Binish on 2022/03/02.
 //
@@ -17,7 +17,7 @@ final class DomainResolverImpl: DomainResolver {
         self.repositoryResolver = repositoryResolver
     }
     
-    func provideGithubRepository() -> GithubRepository {
-        repositoryResolver.resolveGithubRepository()
+    func provideGitHubRepository() -> GitHubRepository {
+        repositoryResolver.resolveGitHubRepository()
     }
 }

@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  GithubViewer-Storyboard
+//  GitHubViewer-Storyboard
 //
 //  Created by Maharjan Binish on 2022/02/05.
 //
