@@ -11,7 +11,7 @@ import RxCocoa
 
 /// BehaviorRelay<T> wrapped as Observable<T>
 @propertyWrapper
-public struct BehaviorRelayWrapper<T> {
+public struct BehaviorRelayAsObservable<T> {
     
     private let relay: BehaviorRelay<T>
     private var observable: Observable<T> {
@@ -33,7 +33,7 @@ public struct BehaviorRelayWrapper<T> {
 
 /// BehaviorSubject<T> wrapped as Observable<T>
 @propertyWrapper
-public struct BehaviorSubjectWrapper<T> {
+public struct BehaviorSubjectAsObservable<T> {
     
     private let relay: BehaviorSubject<T>
     private var observable: Observable<T> {
@@ -55,7 +55,7 @@ public struct BehaviorSubjectWrapper<T> {
 
 /// PublishSubject<T> Wrapped as Observable<T>
 @propertyWrapper
-public struct PublishSubjectWrapper<T> {
+public struct PublishSubjectAsObservable<T> {
     
     private let subject: PublishSubject<T>
     private var observable: Observable<T> {
