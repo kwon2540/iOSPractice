@@ -24,10 +24,10 @@ public protocol BaseViewModelOutputs {
 public typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
 
 // MARK: Concrete Implementation
-public class BaseViewModel: BaseViewModelType {
-    
-    @BehaviorRelayWrapper<LoadingState>(value: .initial)
-    public var loadingState: Observable<LoadingState>
+class BaseViewModel: BaseViewModelType {
+    // MARK: Outputs
+    @PublishSubjectWrapper<LoadingState>
+    var loadingState: Observable<LoadingState>
     
     func showLoading() {
         $loadingState.accept(.loading)

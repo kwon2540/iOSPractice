@@ -18,7 +18,17 @@ public class BaseViewController<T: BaseViewModelType>: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        
         bindBaseViewModel()
+    }
+}
+
+// MARK: Setup
+extension BaseViewController {
+    
+    private func setup() {
+        view.addSubviewWithFullFilling(subview: self.loadingView)
     }
 }
 
