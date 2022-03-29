@@ -29,13 +29,9 @@ extension BaseViewController {
         viewModel.loadingState
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] loadingState in
-                
                 guard let self = self else { return }
                 
                 switch loadingState {
-                case .initial:
-                    self.view.addSubviewWithFullFilling(subview: self.loadingView)
-                    
                 case .loading:
                     self.loadingView.start()
                     
