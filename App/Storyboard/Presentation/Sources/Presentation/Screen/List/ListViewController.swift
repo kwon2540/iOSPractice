@@ -26,5 +26,11 @@ final class ListViewController: BaseViewController<ListViewModel>, Injectable {
     public override func loadView() {
         view = ListView(viewModel: viewModel)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.fetchRepositoryList(for: "swift")
+    }
 }
 
