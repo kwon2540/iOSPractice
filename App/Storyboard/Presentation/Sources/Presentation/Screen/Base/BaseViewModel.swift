@@ -28,10 +28,10 @@ typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
 // MARK: Concrete Implementation
 class BaseViewModel: BaseViewModelType {
     // MARK: Outputs
-    @PublishSubjectWrapper<LoadingState>
+    @PublishSubjectAsObservable<LoadingState>
     var loadingState: Observable<LoadingState>
     
-    @PublishSubjectWrapper<Error>
+    @PublishSubjectAsObservable<Error>
     var showError: Observable<Error>
     
     // MARK: Properties
