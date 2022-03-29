@@ -27,6 +27,6 @@ public final class DefaultGitHubSearchUseCase: GitHubSearchUseCase, Injectable {
     }
     
     public func execute(keyword: String) -> Single<GitHubSearchModel> {
-        fatalError("OKKKKKKKK")
+        repository.fetch(keyword: keyword)
     }
 }
