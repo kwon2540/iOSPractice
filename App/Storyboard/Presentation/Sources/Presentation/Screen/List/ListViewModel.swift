@@ -32,10 +32,8 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     }
     
     // MARK: Inputs
-    private let _didEnterSearchKeyword = PublishSubject<String>()
+    @AnyObserverWrapper<String>
     var didEnterSearchKeyword: AnyObserver<String> {
-        _didEnterSearchKeyword.asObserver()
-    }
     
     // MARK: Outputs
     @BehaviorRelayWrapper<[GitHubRepositoryModel]>(value: [])
