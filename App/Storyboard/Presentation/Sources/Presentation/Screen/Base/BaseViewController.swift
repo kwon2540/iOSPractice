@@ -50,5 +50,25 @@ extension BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.showError
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] error in
+                guard let self = self else { return }
+                
+                self.showErrorAlert(error: error)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension BaseViewController {
+    
+    private func showErrorAlert(error: Error) {
+        let alertViewController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alertViewController.addAction(okButton)
+        
+        present(alertViewController, animated: true)
     }
 }

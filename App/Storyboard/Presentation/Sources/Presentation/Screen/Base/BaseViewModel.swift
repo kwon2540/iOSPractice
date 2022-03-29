@@ -18,6 +18,8 @@ protocol BaseViewModelInputs {
 protocol BaseViewModelOutputs {
     
     var loadingState: Observable<LoadingState> { get }
+    
+    var showError: Observable<Error> { get }
 }
 
 // MARK: Inputs & Outputs
@@ -29,11 +31,9 @@ class BaseViewModel: BaseViewModelType {
     @PublishSubjectWrapper<LoadingState>
     var loadingState: Observable<LoadingState>
     
-    func showLoading() {
-        $loadingState.accept(.loading)
-    }
+    @PublishSubjectWrapper<Error>
+    var showError: Observable<Error>
     
-    func hideLoading() {
-        $loadingState.accept(.completed)
-    }
+    // MARK: Properties
+    public let disposeBag = DisposeBag()
 }
