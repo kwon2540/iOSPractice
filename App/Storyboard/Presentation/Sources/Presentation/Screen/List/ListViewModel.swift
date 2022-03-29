@@ -9,9 +9,11 @@ import Foundation
 import Domain
 import DIKit
 
-public class ListViewModel: BaseViewModel, Injectable {
+// MARK: Inputs
+protocol ListViewModelInputs {
     
-    public struct Dependency {
+    var didEnterSearchKeyword: AnyObserver<String> { get }
+}
         let searchUseCase: GitHubSearchUseCase
     }
     

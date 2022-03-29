@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-public class BaseViewController<T: BaseViewModelType>: UIViewController {
+class BaseViewController<T: BaseViewModelType>: UIViewController {
     
     private let loadingView = LoadingView()
     private let disposeBag = DisposeBag()

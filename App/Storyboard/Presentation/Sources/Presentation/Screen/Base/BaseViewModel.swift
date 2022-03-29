@@ -10,18 +10,18 @@ import RxCocoa
 import RxSwift
 
 // MARK: Inputs
-public protocol BaseViewModelInputs {
+protocol BaseViewModelInputs {
     
 }
 
 // MARK: Outputs
-public protocol BaseViewModelOutputs {
+protocol BaseViewModelOutputs {
     
     var loadingState: Observable<LoadingState> { get }
 }
 
 // MARK: Inputs & Outputs
-public typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
+typealias BaseViewModelType = BaseViewModelInputs & BaseViewModelOutputs
 
 // MARK: Concrete Implementation
 class BaseViewModel: BaseViewModelType {

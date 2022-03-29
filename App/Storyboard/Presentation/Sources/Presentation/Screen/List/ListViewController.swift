@@ -8,7 +8,7 @@
 import UIKit
 import DIKit
 
-public final class ListViewController: BaseViewController<ListViewModel>, Injectable {
+final class ListViewController: BaseViewController<ListViewModel>, Injectable {
     
     public struct Dependency {
         let viewModel: ListViewModel

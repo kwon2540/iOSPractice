@@ -8,7 +8,7 @@
 import Foundation
 import DIKit
 
-public final class DetailViewController: BaseViewController<DetailViewModel>, Injectable {
+final class DetailViewController: BaseViewController<DetailViewModel>, Injectable {
     
     public struct Dependency {
         let viewModel: DetailViewModel
