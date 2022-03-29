@@ -75,21 +75,21 @@ public struct PublishSubjectWrapper<T> {
     }
 }
 
-/// AnyObserverWrapper<T> Wrapped as AnyObserver<T>
+/// PublishSubject<T> Wrapped as AnyObserver<T>
 @propertyWrapper
-struct AnyObserverWrapper<T> {
+public struct PublishSubjectAsObserver<T> {
     
-    private let relay = PublishRelay<T>()
-    private let observer: AnyObserver<T>
-    private let observable: Observable<T>
+    private let subject: PublishSubject<T>
+    private var observer: AnyObserver<T> {
+        subject.asObserver()
+    }
     
     public init() {
-        observer = .create(relay)
-        observable = relay.asObservable()
+        subject = PublishSubject<T>()
     }
     
     public var projectedValue: Observable<T> {
-        observable
+        subject
     }
     
     public var wrappedValue: AnyObserver<T> {
