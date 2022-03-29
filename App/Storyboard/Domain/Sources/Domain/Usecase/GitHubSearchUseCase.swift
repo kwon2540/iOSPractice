@@ -17,10 +17,10 @@ public protocol GitHubSearchUseCase {
 public final class DefaultGitHubSearchUseCase: GitHubSearchUseCase, Injectable {
     
     public struct Dependency {
-        let repository: GithubRepository
+        let repository: GitHubRepository
     }
     
-    private let repository: GithubRepository
+    private let repository: GitHubRepository
     
     public init(dependency: Dependency) {
         self.repository = dependency.repository

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64878B7227AE44C800F6E190"
-               BuildableName = "GithubViewer-Storyboard.app"
-               BlueprintName = "GithubViewer-Storyboard"
-               ReferencedContainer = "container:GithubViewer-Storyboard.xcodeproj">
+               BuildableName = "GitHubViewer-Storyboard.app"
+               BlueprintName = "GitHubViewer-Storyboard"
+               ReferencedContainer = "container:GitHubViewer-Storyboard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64878B7227AE44C800F6E190"
-            BuildableName = "GithubViewer-Storyboard.app"
-            BlueprintName = "GithubViewer-Storyboard"
-            ReferencedContainer = "container:GithubViewer-Storyboard.xcodeproj">
+            BuildableName = "GitHubViewer-Storyboard.app"
+            BlueprintName = "GitHubViewer-Storyboard"
+            ReferencedContainer = "container:GitHubViewer-Storyboard.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64878B7227AE44C800F6E190"
-            BuildableName = "GithubViewer-Storyboard.app"
-            BlueprintName = "GithubViewer-Storyboard"
-            ReferencedContainer = "container:GithubViewer-Storyboard.xcodeproj">
+            BuildableName = "GitHubViewer-Storyboard.app"
+            BlueprintName = "GitHubViewer-Storyboard"
+            ReferencedContainer = "container:GitHubViewer-Storyboard.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

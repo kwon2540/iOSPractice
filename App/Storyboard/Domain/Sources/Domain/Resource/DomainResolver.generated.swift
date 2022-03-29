@@ -10,12 +10,12 @@ import RxSwift
 extension DomainResolver {
 
     func resolveDefaultGitHubSearchUseCase() -> DefaultGitHubSearchUseCase {
-        let githubRepository = resolveGithubRepository()
-        return DefaultGitHubSearchUseCase(dependency: .init(repository: githubRepository))
+        let gitHubRepository = resolveGitHubRepository()
+        return DefaultGitHubSearchUseCase(dependency: .init(repository: gitHubRepository))
     }
 
-    func resolveGithubRepository() -> GithubRepository {
-        return provideGithubRepository()
+    func resolveGitHubRepository() -> GitHubRepository {
+        return provideGitHubRepository()
     }
 
 }

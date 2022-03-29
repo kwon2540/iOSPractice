@@ -10,8 +10,8 @@ import RxSwift
 
 extension DataResolver {
 
-    func resolveDefaultGithubRepository() -> DefaultGithubRepository {
-        return DefaultGithubRepository(dependency: .init())
+    func resolveDefaultGitHubRepository() -> DefaultGitHubRepository {
+        return DefaultGitHubRepository(dependency: .init())
     }
 
 }

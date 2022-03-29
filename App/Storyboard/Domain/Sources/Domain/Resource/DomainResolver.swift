@@ -10,12 +10,12 @@ import DIKit
 
 public protocol DomainResolver: Resolver {
     
-    func provideGithubRepository() -> GithubRepository
+    func provideGitHubRepository() -> GitHubRepository
 }
 
 public extension DomainResolver {
     
-    func resolveGithubSearchUseCase() -> GitHubSearchUseCase {
+    func resolveGitHubSearchUseCase() -> GitHubSearchUseCase {
         resolveDefaultGitHubSearchUseCase()
     }
 }

@@ -1,6 +1,6 @@
 //
 //  PresentationResolverImpl.swift
-//  GithubViewer-Storyboard
+//  GitHubViewer-Storyboard
 //
 //  Created by Maharjan Binish on 2022/03/20.
 //
@@ -18,6 +18,6 @@ final class PresentationResolverImpl: PresentationResolver {
     }
     
     func provideGitHubSearchUseCase() -> GitHubSearchUseCase {
-        domainResolver.resolveGithubSearchUseCase()
+        domainResolver.resolveGitHubSearchUseCase()
     }
 }

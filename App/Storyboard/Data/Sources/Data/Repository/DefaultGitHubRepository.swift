@@ -1,5 +1,5 @@
 //
-//  DefaultGithubRepository.swift
+//  DefaultGitHubRepository.swift
 //  
 //
 //  Created by Maharjan Binish on 2022/02/25.
@@ -10,7 +10,7 @@ import Domain
 import RxSwift
 import DIKit
 
-public final class DefaultGithubRepository: GithubRepository, Injectable {
+public final class DefaultGitHubRepository: GitHubRepository, Injectable {
     
     public struct Dependency {}
     
