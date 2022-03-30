@@ -49,7 +49,7 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
         bind()
     }
     
-    func fetchRepositoryList(for keyword: String) {
+    private func fetchRepositoryList(for keyword: String) {
         $loadingState.onNext(.loading)
         
         searchUseCase.execute(keyword: keyword)

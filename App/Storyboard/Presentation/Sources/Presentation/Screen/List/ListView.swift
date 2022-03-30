@@ -31,7 +31,9 @@ final class ListView: UIView {
         super.init(frame: .zero)
         
         loadOwnedXib()
+        
         setup()
+        
         bind()
     }
     
