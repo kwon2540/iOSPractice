@@ -14,6 +14,8 @@ final class ListViewController: BaseViewController<ListViewModel>, Injectable {
         let viewModel: ListViewModel
     }
     
+    private let defaultKeyword = "swift"
+    
     public init(dependency: Dependency) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = dependency.viewModel
@@ -30,7 +32,8 @@ final class ListViewController: BaseViewController<ListViewModel>, Injectable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.fetchRepositoryList(for: "swift")
+        // load with swift keyword initially
+        viewModel.searchButtonClicked.onNext(defaultKeyword)
     }
 }
 

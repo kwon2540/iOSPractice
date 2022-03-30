@@ -14,7 +14,7 @@ import RxCocoa
 // MARK: Inputs
 protocol ListViewModelInputs {
     
-    var didEnterSearchKeyword: AnyObserver<String> { get }
+    var searchButtonClicked: AnyObserver<String?> { get }
 }
 
 // MARK: Outputs
@@ -32,14 +32,12 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     }
     
     // MARK: Inputs
-    @PublishSubjectAsObserver<String>
-    var didEnterSearchKeyword: AnyObserver<String>
+    @PublishSubjectAsObserver<String?>
+    var searchButtonClicked: AnyObserver<String?>
     
     // MARK: Outputs
-    @BehaviorRelayWrapper<[GitHubRepositoryModel]>(value: [])
+    @BehaviorRelayAsObservable<[GitHubRepositoryModel]>(value: [])
     var repositories: Observable<[GitHubRepositoryModel]>
-    
-    
     
     // MARK: Properties
     private let searchUseCase: GitHubSearchUseCase
@@ -47,9 +45,11 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     required public init(dependency: Dependency) {
         self.searchUseCase = dependency.searchUseCase
         super.init()
+        
+        bind()
     }
     
-    func fetchRepositoryList(for keyword: String) {
+    private func fetchRepositoryList(for keyword: String) {
         $loadingState.onNext(.loading)
         
         searchUseCase.execute(keyword: keyword)
@@ -65,6 +65,20 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
                 self.$showError.onNext(error)
                 self.$loadingState.onNext(.completed)
             }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension ListViewModel {
+    
+    private func bind() {
+        $searchButtonClicked
+            .skipNil()
+            .subscribe(onNext: { [weak self] keyword in
+                guard let self = self else { return }
+                
+                self.fetchRepositoryList(for: keyword)
+            })
             .disposed(by: disposeBag)
     }
 }
