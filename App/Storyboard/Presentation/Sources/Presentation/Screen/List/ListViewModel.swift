@@ -14,7 +14,7 @@ import RxCocoa
 // MARK: Inputs
 protocol ListViewModelInputs {
     
-    var didEnterSearchKeyword: AnyObserver<String> { get }
+    var searchButtonClicked: AnyObserver<String?> { get }
 }
 
 // MARK: Outputs
@@ -32,14 +32,12 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     }
     
     // MARK: Inputs
-    @PublishSubjectAsObserver<String>
-    var didEnterSearchKeyword: AnyObserver<String>
+    @PublishSubjectAsObserver<String?>
+    var searchButtonClicked: AnyObserver<String?>
     
     // MARK: Outputs
     @BehaviorRelayAsObservable<[GitHubRepositoryModel]>(value: [])
     var repositories: Observable<[GitHubRepositoryModel]>
-    
-    
     
     // MARK: Properties
     private let searchUseCase: GitHubSearchUseCase
