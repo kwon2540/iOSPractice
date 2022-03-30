@@ -45,6 +45,8 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     required public init(dependency: Dependency) {
         self.searchUseCase = dependency.searchUseCase
         super.init()
+        
+        bind()
     }
     
     func fetchRepositoryList(for keyword: String) {
@@ -63,6 +65,20 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
                 self.$showError.onNext(error)
                 self.$loadingState.onNext(.completed)
             }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension ListViewModel {
+    
+    private func bind() {
+        $searchButtonClicked
+            .skipNil()
+            .subscribe(onNext: { [weak self] keyword in
+                guard let self = self else { return }
+                
+                self.fetchRepositoryList(for: keyword)
+            })
             .disposed(by: disposeBag)
     }
 }

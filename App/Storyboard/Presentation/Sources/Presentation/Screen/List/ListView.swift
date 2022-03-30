@@ -51,6 +51,13 @@ extension ListView {
 extension ListView {
     
     private func bind() {
+        // Input
+        searchBar.rx.searchButtonClicked
+            .withLatestFrom(searchBar.rx.text)
+            .bind(to: viewModel.searchButtonClicked)
+            .disposed(by: disposeBag)
+        
+        // Output
         viewModel.repositories
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] repositories in
