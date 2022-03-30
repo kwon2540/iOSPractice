@@ -36,7 +36,7 @@ class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     var didEnterSearchKeyword: AnyObserver<String>
     
     // MARK: Outputs
-    @BehaviorRelayWrapper<[GitHubRepositoryModel]>(value: [])
+    @BehaviorRelayAsObservable<[GitHubRepositoryModel]>(value: [])
     var repositories: Observable<[GitHubRepositoryModel]>
     
     
