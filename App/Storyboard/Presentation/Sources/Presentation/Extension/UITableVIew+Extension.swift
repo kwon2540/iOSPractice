@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UITableView+Extension.swift
 //  
 //
 //  Created by Maharjan Binish on 2022/04/08.
