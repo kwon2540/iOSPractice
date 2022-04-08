@@ -73,6 +73,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImageView" destination="DfQ-sd-F7o" id="gZY-Kl-ZvX"/>
                 <outlet property="infoLabel" destination="b7W-HM-lDD" id="Kz1-sK-SvQ"/>
                 <outlet property="languageLabel" destination="QJC-dM-G1M" id="koE-uR-qtK"/>
                 <outlet property="nameLabel" destination="lKg-1A-Ogc" id="V83-KK-U6a"/>

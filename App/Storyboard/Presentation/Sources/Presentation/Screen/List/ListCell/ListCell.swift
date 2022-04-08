@@ -12,6 +12,7 @@ final class ListCell: UITableViewCell {
     
     private let disposeBag = DisposeBag()
 
+    @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var ownerLabel: UILabel!
     @IBOutlet private weak var infoLabel: UILabel!
@@ -36,6 +37,14 @@ extension ListCell {
         
         viewModel.language
             .bind(to: languageLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.avatarUrl
+            .subscribe(onNext: { [weak self] url in
+                guard let self = self else { return }
+                
+                self.avatarImageView.loadImage(at: url)
+            })
             .disposed(by: disposeBag)
     }
 }
