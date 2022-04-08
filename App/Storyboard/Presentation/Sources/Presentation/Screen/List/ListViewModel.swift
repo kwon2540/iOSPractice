@@ -25,7 +25,7 @@ protocol ListViewModelOutputs {
 
 typealias ListViewModelType = ListViewModelInputs & ListViewModelOutputs
 
-class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
+final class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     
     struct Dependency {
         let searchUseCase: GitHubSearchUseCase
