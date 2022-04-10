@@ -34,7 +34,10 @@ public final class RootViewController: SingleContainerViewContainer, Injectable 
 
 extension RootViewController {
     
-    func makeListViewController() -> ListViewController {
-        resolver.resolveListViewController()
+    func makeListViewController() -> UINavigationController {
+        let viewController = resolver.resolveListViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        return navigationController
     }
 }
