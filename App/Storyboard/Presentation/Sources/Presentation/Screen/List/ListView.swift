@@ -47,6 +47,8 @@ extension ListView {
     private func setup() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.registerXib(of: ListCell.self)
     }
 }
 
@@ -73,6 +75,9 @@ extension ListView {
 
 extension ListView: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
 }
 
 
@@ -83,8 +88,13 @@ extension ListView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = repositories[indexPath.row].fullName
+        let cell = tableView.dequeueCell(of: ListCell.self, for: indexPath)
+        cell.bind(with: cellViewModel(for: indexPath))
         return cell
+    }
+    
+    private func cellViewModel(for indexPath: IndexPath) -> ListCellViewModelType {
+        let repository = repositories[indexPath.row]
+        return ListCellViewModel(repository: repository)
     }
 }
