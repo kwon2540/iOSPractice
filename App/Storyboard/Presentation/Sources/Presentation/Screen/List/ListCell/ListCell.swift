@@ -12,11 +12,27 @@ final class ListCell: UITableViewCell {
     
     private let disposeBag = DisposeBag()
 
+    @IBOutlet private weak var avatarImageBorderView: UIView!
     @IBOutlet private weak var avatarImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var ownerLabel: UILabel!
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        setup()
+    }
+}
+
+extension ListCell {
+    
+    private func setup() {
+        avatarImageBorderView.layer.borderWidth = 2
+        avatarImageBorderView.layer.cornerRadius = 4
+        avatarImageBorderView.layer.borderColor = UIColor.lightGray.cgColor
+    }
 }
 
 extension ListCell {
