@@ -18,6 +18,7 @@ final class ListCell: UITableViewCell {
     @IBOutlet private weak var ownerLabel: UILabel!
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet weak var starCountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +54,10 @@ extension ListCell {
         
         viewModel.language
             .bind(to: languageLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.starCount
+            .bind(to: starCountLabel.rx.text)
             .disposed(by: disposeBag)
         
         viewModel.avatarUrl
