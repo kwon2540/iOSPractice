@@ -27,7 +27,8 @@ extension PresentationResolver {
 
     func resolveListViewController() -> ListViewController {
         let listViewModel = resolveListViewModel()
-        return ListViewController(dependency: .init(viewModel: listViewModel))
+        let presentationResolver = resolvePresentationResolver()
+        return ListViewController(dependency: .init(viewModel: listViewModel, resolver: presentationResolver))
     }
 
     func resolveListViewModel() -> ListViewModel {

@@ -15,12 +15,14 @@ import RxCocoa
 protocol ListViewModelInputs {
     
     var searchButtonClicked: AnyObserver<String?> { get }
+    var didTapCell: AnyObserver<GitHubRepositoryModel> { get }
 }
 
 // MARK: Outputs
 protocol ListViewModelOutputs {
     
     var repositories: Observable<[GitHubRepositoryModel]> { get }
+    var action: Observable<ListViewModel.Action> { get }
 }
 
 typealias ListViewModelType = ListViewModelInputs & ListViewModelOutputs
@@ -40,9 +42,17 @@ final class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     @PublishSubjectAsObserver<String?>
     var searchButtonClicked: AnyObserver<String?>
     
+    @PublishSubjectAsObserver<GitHubRepositoryModel>
+    var didTapCell: AnyObserver<GitHubRepositoryModel>
+
+    
     // MARK: Outputs
     @BehaviorRelayAsObservable<[GitHubRepositoryModel]>(value: [])
     var repositories: Observable<[GitHubRepositoryModel]>
+    
+    @PublishSubjectAsObservable<Action>
+    var action: Observable<Action>
+    
     
     // MARK: Properties
     private let searchUseCase: GitHubSearchUseCase
@@ -84,6 +94,11 @@ extension ListViewModel {
                 
                 self.fetchRepositoryList(for: keyword)
             })
+            .disposed(by: disposeBag)
+        
+        $didTapCell
+            .map { Action.detail($0) }
+            .bind(to: $action)
             .disposed(by: disposeBag)
     }
 }
