@@ -31,7 +31,6 @@ final class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     
     enum Action {
         case detail(GitHubRepositoryModel)
-        case random
     }
     
     struct Dependency {
