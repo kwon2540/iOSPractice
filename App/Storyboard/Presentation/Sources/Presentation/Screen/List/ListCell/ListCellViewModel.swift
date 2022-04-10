@@ -20,6 +20,7 @@ protocol ListCellViewModelOutputs {
     var description: Observable<String?> { get }
     var language: Observable<String?> { get }
     var avatarUrl: Observable<URL> { get }
+    var starCount: Observable<String> { get }
 }
 
 typealias ListCellViewModelType = ListCellViewModelInputs & ListCellViewModelOutputs
@@ -32,6 +33,7 @@ final class ListCellViewModel: ListCellViewModelType {
     let description: Observable<String?>
     let language: Observable<String?>
     let avatarUrl: Observable<URL>
+    let starCount: Observable<String>
     
     // MARK: Properties
     private let repository: GitHubRepositoryModel
@@ -44,5 +46,6 @@ final class ListCellViewModel: ListCellViewModelType {
         description = Observable.just(repository.description)
         language = Observable.just(repository.language)
         avatarUrl = Observable.just(repository.owner.avatarUrl)
+        starCount = Observable.just(repository.stargazersCount)
     }
 }
