@@ -15,6 +15,17 @@ public protocol APIClient {
     var urlRequest: URLRequest! { get }
     
     func request<Request: APIRequest>(request: Request) -> Single<Request.Response>
+    
+    func requestForData<Request: APIRequest>(request: Request) -> Single<Data>
+}
+
+extension APIClient {
+    
+    public func request<Request: APIRequest>(request: Request) -> Single<Request.Response> {
+        requestForData(request: request)
+            .map { try request.decoder.decode(Request.Response.self, from: $0) }
+            .catch { Single.error(APIError.parseError($0)) }
+    }
 }
 
 public final class DefaultAPIClient: APIClient, Injectable {
@@ -25,21 +36,14 @@ public final class DefaultAPIClient: APIClient, Injectable {
     
     public init(dependency: Dependency) {}
     
-    public func request<Request>(request: Request) -> Single<Request.Response> where Request : APIRequest {
+    public func requestForData<Request>(request: Request) -> Single<Data> where Request : APIRequest {
         guard let urlRequest = request.urlRequest else {
             return Single.error(APIError.invalidURL)
         }
         
-        self.urlRequest = urlRequest
-        
-        return Single.create(subscribe: { [weak self] single -> Disposable in
+        return Single.create(subscribe: { single -> Disposable in
             
             let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                guard let self = self else {
-                    single(.failure(APIError.responseError))
-                    return
-                }
-                
                 if error != nil  {
                     single(.failure(APIError.responseError))
                     return
@@ -50,12 +54,7 @@ public final class DefaultAPIClient: APIClient, Injectable {
                     return
                 }
                 
-                do {
-                    let response = try request.decoder.decode(Request.Response.self, from: data)
-                    single(.success(response))
-                } catch {
-                    single(.failure(APIError.parseError(error)))
-                }
+                return single(.success(data))
             }
             
             task.resume()
