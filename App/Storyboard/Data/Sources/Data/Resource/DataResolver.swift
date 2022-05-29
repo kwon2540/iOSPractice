@@ -25,7 +25,7 @@ public final class RepositoryResolverImpl: RepositoryResolver {
     public init() {}
     
     public func resolveGitHubRepository() -> DefaultGitHubRepository {
-        resolveDefaultGitHubRepository()
+        resolveDefaultGitHubRepository(apiClient: resolveDefaultAPIClient())
     }
 }
 
