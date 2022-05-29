@@ -12,8 +12,6 @@ import DIKit
 // Write Test Code for SessionManager.request
 public protocol APIClient {
     
-    var urlRequest: URLRequest! { get }
-    
     func request<Request: APIRequest>(request: Request) -> Single<Request.Response>
     
     func requestForData<Request: APIRequest>(request: Request) -> Single<Data>
@@ -29,10 +27,8 @@ extension APIClient {
 }
 
 public final class DefaultAPIClient: APIClient, Injectable {
-   
+
     public struct Dependency {}
-    
-    public var urlRequest: URLRequest!
     
     public init(dependency: Dependency) {}
     
