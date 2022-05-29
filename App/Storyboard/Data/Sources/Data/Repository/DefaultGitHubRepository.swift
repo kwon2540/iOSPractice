@@ -12,13 +12,19 @@ import DIKit
 
 public final class DefaultGitHubRepository: GitHubRepository, Injectable {
     
-    public struct Dependency {}
+    public struct Dependency {
+        var apiClient: APIClient
+    }
     
-    public init(dependency: Dependency) { }
+    private var apiClient: APIClient
+    
+    public init(dependency: Dependency) {
+        self.apiClient = dependency.apiClient
+    }
     
     public func fetch(keyword: String) -> Single<GitHubSearchModel> {
-        GitHubSearchAPIRequest(keyword: keyword)
-            .request()
+        apiClient
+            .request(request: GitHubSearchAPIRequest(keyword: keyword))
             .map { $0.toModel() }
     }
 }

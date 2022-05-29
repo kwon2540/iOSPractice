@@ -7,42 +7,38 @@
 
 import Foundation
 import RxSwift
+import DIKit
 
-public enum APIError: Error {
-    case invalidURL
-    case responseError
-    case parseError(Error)
+// Write Test Code for SessionManager.request
+public protocol APIClient {
+    
+    var urlRequest: URLRequest! { get }
+    
+    func request<Request: APIRequest>(request: Request) -> Single<Request.Response>
 }
 
-public extension APIRequest {
+public final class DefaultAPIClient: APIClient, Injectable {
+   
+    public struct Dependency {}
     
-    /// Default Decoder
-    var decoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }
+    public var urlRequest: URLRequest!
     
-    /// API Request
-    func request() -> Single<Response> {
-        guard let url = URL(string: path, relativeTo: baseURL),
-              var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-                  return Single.error(APIError.invalidURL)
-              }
-        
-        urlComponents.queryItems = queryItems
-        
-        guard let url = urlComponents.url else {
+    public init(dependency: Dependency) {}
+    
+    public func request<Request>(request: Request) -> Single<Request.Response> where Request : APIRequest {
+        guard let urlRequest = request.urlRequest else {
             return Single.error(APIError.invalidURL)
         }
         
-        var request = URLRequest(url: url)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        self.urlRequest = urlRequest
         
-        
-        return Single.create(subscribe: { single -> Disposable in
+        return Single.create(subscribe: { [weak self] single -> Disposable in
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                guard let self = self else {
+                    single(.failure(APIError.responseError))
+                    return
+                }
                 
                 if error != nil  {
                     single(.failure(APIError.responseError))
@@ -55,7 +51,7 @@ public extension APIRequest {
                 }
                 
                 do {
-                    let response = try decoder.decode(Response.self, from: data)
+                    let response = try request.decoder.decode(Request.Response.self, from: data)
                     single(.success(response))
                 } catch {
                     single(.failure(APIError.parseError(error)))
@@ -68,4 +64,10 @@ public extension APIRequest {
         })
             .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
     }
+}
+
+public enum APIError: Error {
+    case invalidURL
+    case responseError
+    case parseError(Error)
 }

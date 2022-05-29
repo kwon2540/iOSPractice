@@ -57,9 +57,9 @@ public struct GitHubSearchAPIRequest: GitHubAPIRequest {
                 language: String? = nil,
                 hasStars: Int? = nil,
                 topic: String? = nil) {
+        self.keyword = keyword ?? "" // (keyword?.isEmpty ?? true) ? "" : keyword
         self.language = language
-        self.keyword = (keyword?.isEmpty ?? true) ? "" : keyword
         self.hasStars = hasStars
-        self.topic = (topic?.isEmpty ?? true) ? "" : topic
+        self.topic = topic ?? "" // (topic?.isEmpty ?? true) ? "" : topic
     }
 }
