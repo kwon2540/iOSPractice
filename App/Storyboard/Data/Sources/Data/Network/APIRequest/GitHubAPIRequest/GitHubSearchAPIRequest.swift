@@ -20,46 +20,17 @@ public struct GitHubSearchAPIRequest: GitHubAPIRequest {
             .init(name: "order", value: "desc")
         ])
 
-        var params: [String] = []
-
-        if let language = language, !language.isEmpty {
-            params.append("language:\(language)")
-        }
-
-        if let hasStars = hasStars, hasStars > 0 {
-            params.append("stars:>=\(hasStars)")
-        }
-
-        if let topic = topic, !topic.isEmpty {
-            params.append("topic:\(topic)")
-        }
-
-        let joinedParams = params.joined(separator: "+")
-
-        var q = ""
         if let keyword = keyword, !keyword.isEmpty {
-            q = "\(keyword)+\(joinedParams)"
-        } else {
-            q = joinedParams
+            let q = "\(keyword)"
+            items.append(.init(name: "q", value: q))
         }
-
-        items.append(.init(name: "q", value: q))
 
         return items
     }
 
     let keyword: String?
-    let language: String?
-    let hasStars: Int?
-    let topic: String?
 
-    public init(keyword: String? = nil,
-                language: String? = nil,
-                hasStars: Int? = nil,
-                topic: String? = nil) {
-        self.keyword = keyword ?? "" // (keyword?.isEmpty ?? true) ? "" : keyword
-        self.language = language
-        self.hasStars = hasStars
-        self.topic = topic ?? "" // (topic?.isEmpty ?? true) ? "" : topic
+    public init(keyword: String? = nil) {
+        self.keyword = keyword ?? ""
     }
 }
