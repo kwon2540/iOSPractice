@@ -7,6 +7,7 @@
 
 import Foundation
 import DIKit
+import RxSwift
 
 final class DetailViewController: BaseViewController<DetailViewModel>, Injectable {
     
@@ -21,6 +22,26 @@ final class DetailViewController: BaseViewController<DetailViewModel>, Injectabl
     
     public required init?(coder: NSCoder) {
         fatalError("init(coder: ) has not been implemented")
+    }
+    
+    public override func loadView() {
+        view = DetailView(viewModel: viewModel)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        bind()
+    }
+}
+
+extension DetailViewController {
+    
+    private func bind() {
+        viewModel.title
+            .observe(on: MainScheduler.instance)
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
     }
 }
 
