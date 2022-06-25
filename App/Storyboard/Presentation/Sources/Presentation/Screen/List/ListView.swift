@@ -78,6 +78,13 @@ extension ListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cellViewModel = repositories[indexPath.row]
+        viewModel.cellTapped.onNext((url: cellViewModel.htmlUrl, title: cellViewModel.name))
+    }
 }
 
 
