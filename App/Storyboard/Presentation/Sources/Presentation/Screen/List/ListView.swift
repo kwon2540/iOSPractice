@@ -83,7 +83,7 @@ extension ListView: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let cellViewModel = repositories[indexPath.row]
-        viewModel.cellTapped.onNext((url: cellViewModel.htmlUrl, title: cellViewModel.name))
+        viewModel.didTapCell.onNext((url: cellViewModel.htmlUrl, title: cellViewModel.name))
     }
 }
 

@@ -15,7 +15,7 @@ import RxCocoa
 protocol ListViewModelInputs {
     
     var searchButtonClicked: AnyObserver<String?> { get }
-    var cellTapped: AnyObserver<(url: URL, title: String)> { get }
+    var didTapCell: AnyObserver<(url: URL, title: String)> { get }
 }
 
 // MARK: Outputs
@@ -38,7 +38,7 @@ final class ListViewModel: BaseViewModel, ListViewModelType, Injectable {
     var searchButtonClicked: AnyObserver<String?>
     
     @PublishSubjectAsObserver<(url: URL, title: String)>
-    var cellTapped: AnyObserver<(url: URL, title: String)>
+    var didTapCell: AnyObserver<(url: URL, title: String)>
     
     // MARK: Outputs
     @BehaviorRelayAsObservable<[GitHubRepositoryModel]>(value: [])
@@ -89,7 +89,7 @@ extension ListViewModel {
             })
             .disposed(by: disposeBag)
         
-        $cellTapped
+        $didTapCell
         
             .bind(to: $openDetail)
             .disposed(by: disposeBag)
