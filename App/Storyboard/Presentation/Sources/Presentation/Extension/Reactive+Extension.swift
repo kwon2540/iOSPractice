@@ -7,15 +7,16 @@
 
 import RxSwift
 import RxCocoa
+import WebKit
 
-public protocol OptionalType {
+protocol OptionalType {
     associatedtype Wrapped
     func flatMap<U>(_ transform: (Wrapped) throws -> U?) rethrows -> U? // Optional で定義されているメソッドを書いているだけ
 }
 
 extension Optional: OptionalType {}
 
-public extension ObservableType {
+extension ObservableType {
 
     /// flatMap でクロージャーを処理後、nil 以外ならアンラップして流す
     func skipNil<R>(_ transform: @escaping (Element) -> R) -> Observable<R.Wrapped> where R: OptionalType {
@@ -25,7 +26,7 @@ public extension ObservableType {
     }
 }
 
-public extension ObservableType where Element: OptionalType {
+extension ObservableType where Element: OptionalType {
 
     /// Optional の中身が nil 以外ならアンラップして流す
     func skipNil() -> Observable<Element.Wrapped> {
@@ -37,6 +38,16 @@ public extension ObservableType where Element: OptionalType {
         flatMap { element -> Observable<Element.Wrapped> in
             let value = element.flatMap({ $0 }) ?? alternativeValue
             return Observable<Element.Wrapped>.just(value)
+        }
+    }
+}
+
+extension Reactive where Base == WKWebView {
+    
+    var loadUrl: Binder<URL> {
+        Binder(base) { observer, url in
+            let urlRequest = URLRequest(url: url)
+            observer.load(urlRequest)
         }
     }
 }
