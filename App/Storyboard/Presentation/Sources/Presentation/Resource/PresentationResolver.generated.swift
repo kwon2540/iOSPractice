@@ -12,13 +12,13 @@ import UIKit
 
 extension PresentationResolver {
 
-    func resolveDetailViewController() -> DetailViewController {
-        let detailViewModel = resolveDetailViewModel()
+    func resolveDetailViewController(url: URL, title: String) -> DetailViewController {
+        let detailViewModel = resolveDetailViewModel(url: url, title: title)
         return DetailViewController(dependency: .init(viewModel: detailViewModel))
     }
 
-    func resolveDetailViewModel() -> DetailViewModel {
-        return DetailViewModel(dependency: .init())
+    func resolveDetailViewModel(url: URL, title: String) -> DetailViewModel {
+        return DetailViewModel(dependency: .init(url: url, title: title))
     }
 
     func resolveGitHubSearchUseCase() -> GitHubSearchUseCase {
@@ -27,7 +27,8 @@ extension PresentationResolver {
 
     func resolveListViewController() -> ListViewController {
         let listViewModel = resolveListViewModel()
-        return ListViewController(dependency: .init(viewModel: listViewModel))
+        let presentationResolver = resolvePresentationResolver()
+        return ListViewController(dependency: .init(viewModel: listViewModel, resolver: presentationResolver))
     }
 
     func resolveListViewModel() -> ListViewModel {

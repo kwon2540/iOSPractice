@@ -53,6 +53,28 @@ public struct BehaviorSubjectAsObservable<T> {
     }
 }
 
+/// PublishRelay<T> Wrapped as Observable<T>
+@propertyWrapper
+public struct PublishRelayAsObservable<T> {
+    
+    private let relay: PublishRelay<T>
+    private var observable: Observable<T> {
+        relay.asObservable()
+    }
+    
+    public init() {
+        self.relay = PublishRelay()
+    }
+    
+    public var projectedValue: PublishRelay<T> {
+        relay
+    }
+    
+    public var wrappedValue: Observable<T> {
+        observable
+    }
+}
+
 /// PublishSubject<T> Wrapped as Observable<T>
 @propertyWrapper
 public struct PublishSubjectAsObservable<T> {
@@ -88,7 +110,7 @@ public struct PublishSubjectAsObserver<T> {
         subject = PublishSubject<T>()
     }
     
-    public var projectedValue: Observable<T> {
+    public var projectedValue: PublishSubject<T> {
         subject
     }
     
