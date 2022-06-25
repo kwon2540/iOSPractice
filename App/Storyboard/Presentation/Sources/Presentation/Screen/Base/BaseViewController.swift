@@ -11,7 +11,7 @@ import RxSwift
 class BaseViewController<T: BaseViewModelType>: UIViewController {
     
     private let loadingView = LoadingView()
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     var viewModel: T!
   
