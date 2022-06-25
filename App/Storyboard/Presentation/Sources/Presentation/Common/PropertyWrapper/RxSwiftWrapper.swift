@@ -110,7 +110,7 @@ public struct PublishSubjectAsObserver<T> {
         subject = PublishSubject<T>()
     }
     
-    public var projectedValue: Observable<T> {
+    public var projectedValue: PublishSubject<T> {
         subject
     }
     
