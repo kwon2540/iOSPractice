@@ -94,6 +94,7 @@
 				3321D88B28700F0200637D21 /* Sources */,
 				3321D88C28700F0200637D21 /* Frameworks */,
 				3321D88D28700F0200637D21 /* Resources */,
+				33C2948C287A74A7003CD748 /* Needle Run Script */,
 			);
 			buildRules = (
 			);
@@ -153,6 +154,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33C2948C287A74A7003CD748 /* Needle Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Needle Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "needle generate GitHubViewer-SwiftUI+Combine/NeedleGenerated.swift GitHubViewer-SwiftUI+Combine/\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3321D88B28700F0200637D21 /* Sources */ = {
