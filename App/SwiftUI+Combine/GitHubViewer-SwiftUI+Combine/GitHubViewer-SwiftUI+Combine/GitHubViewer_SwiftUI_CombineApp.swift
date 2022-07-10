@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Presentation
 
 @main
 struct GitHubViewer_SwiftUI_CombineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

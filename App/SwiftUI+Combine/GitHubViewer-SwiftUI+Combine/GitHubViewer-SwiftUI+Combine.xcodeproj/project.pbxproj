@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3321D89328700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321D89228700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift */; };
-		3321D89528700F0200637D21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321D89428700F0200637D21 /* ContentView.swift */; };
 		3321D89728700F0300637D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321D89628700F0300637D21 /* Assets.xcassets */; };
 		3321D89A28700F0300637D21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321D89928700F0300637D21 /* Preview Assets.xcassets */; };
 		3321D8A528700FC100637D21 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 3321D8A428700FC100637D21 /* Presentation */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		3321D88F28700F0200637D21 /* GitHubViewer-SwiftUI+Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubViewer-SwiftUI+Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3321D89228700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubViewer_SwiftUI_CombineApp.swift; sourceTree = "<group>"; };
-		3321D89428700F0200637D21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3321D89628700F0300637D21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3321D89928700F0300637D21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3321D8A028700F1800637D21 /* Presentation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Presentation; path = ../Presentation; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				3321D89228700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift */,
-				3321D89428700F0200637D21 /* ContentView.swift */,
 				3321D89628700F0300637D21 /* Assets.xcassets */,
 				3321D89828700F0300637D21 /* Preview Content */,
 			);
@@ -162,7 +159,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3321D89528700F0200637D21 /* ContentView.swift in Sources */,
 				3321D89328700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
