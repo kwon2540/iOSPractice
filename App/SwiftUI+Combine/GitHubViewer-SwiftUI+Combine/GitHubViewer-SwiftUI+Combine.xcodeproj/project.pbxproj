@@ -13,6 +13,7 @@
 		3321D89328700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321D89228700F0200637D21 /* GitHubViewer_SwiftUI_CombineApp.swift */; };
 		3321D89728700F0300637D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321D89628700F0300637D21 /* Assets.xcassets */; };
 		3321D89A28700F0300637D21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321D89928700F0300637D21 /* Preview Assets.xcassets */; };
+		33CED859288B8FEB0026BDE4 /* Needle in Frameworks */ = {isa = PBXBuildFile; productRef = 33CED858288B8FEB0026BDE4 /* Needle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 				3315666E2882612B005F50AE /* Domain in Frameworks */,
 				331566702882612B005F50AE /* Presentation in Frameworks */,
 				3315666C2882612B005F50AE /* Data in Frameworks */,
+				33CED859288B8FEB0026BDE4 /* Needle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,7 @@
 				3315666B2882612B005F50AE /* Data */,
 				3315666D2882612B005F50AE /* Domain */,
 				3315666F2882612B005F50AE /* Presentation */,
+				33CED858288B8FEB0026BDE4 /* Needle */,
 			);
 			productName = "GitHubViewer-SwiftUI+Combine";
 			productReference = 3321D88F28700F0200637D21 /* GitHubViewer-SwiftUI+Combine.app */;
@@ -166,7 +169,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "needle generate GitHubViewer-SwiftUI+Combine/NeedleGenerated.swift GitHubViewer-SwiftUI+Combine/\n";
+			shellScript = "needle generate ${SRCROOT}/../App/Sources/Needle/NeedleGenerated.swift ${SRCROOT}/../App/Sources/\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -389,6 +392,10 @@
 		3315666F2882612B005F50AE /* Presentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Presentation;
+		};
+		33CED858288B8FEB0026BDE4 /* Needle */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Needle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
