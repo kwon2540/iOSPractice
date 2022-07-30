@@ -8,21 +8,30 @@
 import SwiftUI
 import WebKit
 
-struct DetailView: View {
+public struct DetailView: View {
     
-    let url: URL
+    private let url: URL
+    private let title: String
     
-    let title: String
+    public init(url: URL, title: String) {
+        self.url = url
+        self.title = title
+    }
     
-    var body: some View {
+    public var body: some View {
         WebView(url: url)
             .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
  
 struct WebView: UIViewRepresentable {
  
-    let url: URL
+    private let url: URL
+    
+    init(url: URL) {
+        self.url = url
+    }
  
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()

@@ -7,24 +7,51 @@
 
 import SwiftUI
 import WebKit
+import Domain
 
-struct ListView: View {
-    @State private var text: String = ""
+public struct ListView: View {
     
-    @State private var repositoryList = [1,2,3,4,5]
-    
-    @State private var showDetailView = false
+    @State private var keyword: String = ""
+    @State private var repositoryList: [GitHubRepositoryModel]  = []
+    @State private var downloadTask: Task<(), Never>?
         
-    var body: some View {
+    private let gitHubSearchUseCase: GitHubSearchUseCaseProtocol
+    private let detailBuilder: DetailBuilder
+    
+    public init(gitHubSearchUseCase: GitHubSearchUseCaseProtocol, detailBuilder: DetailBuilder) {
+        self.gitHubSearchUseCase = gitHubSearchUseCase
+        self.detailBuilder = detailBuilder
+    }
+    
+    public var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $text)
+                SearchBar { keyword in
+                    self.downloadTask?.cancel()
+                    self.downloadTask = Task {
+                        do {
+                            if !keyword.isEmpty {
+                                let gitHubSearchModel = try await gitHubSearchUseCase.execute(keyword: keyword)
+                                self.repositoryList = gitHubSearchModel.items
+                            } else {
+                                self.repositoryList.removeAll()
+                            }
+                        } catch(let error) {
+                            if Task.isCancelled {
+                                print("Canceled")
+                            } else {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+                }
+                
                 List {
-                    ForEach(repositoryList, id: \.self) { _ in
+                    ForEach(repositoryList) { model in
                         NavigationLink {
-                            DetailView(url: URL(string: "https://www.example.com")!, title: "Example")
+                            detailBuilder.detailView(url: model.htmlUrl, title: model.name)
                         } label: {
-                            ListCell(repositoryModel: "")
+                            ListCell(model: model)
                         }
                     }
                 }
@@ -37,7 +64,13 @@ struct ListView: View {
 
 struct SearchBar: View {
 
-    @Binding var text: String
+    @State private var keyword: String = ""
+    
+    let onChange: (String) -> Void
+    
+    init(onChange: @escaping (String) -> Void) {
+        self.onChange = onChange
+    }
 
     var body: some View {
         VStack {
@@ -56,12 +89,15 @@ struct SearchBar: View {
                         .foregroundColor(.gray)
 
                     // テキストフィールド
-                    TextField("Search", text: $text)
+                    TextField("Search", text: $keyword)
+                        .onChange(of: keyword) { keyword in
+                            onChange(keyword)
+                        }
 
                     // 検索文字が空ではない場合は、クリアボタンを表示
-                    if !text.isEmpty {
+                    if !keyword.isEmpty {
                         Button {
-                            text.removeAll()
+                            keyword.removeAll()
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .foregroundColor(.gray)
@@ -76,8 +112,8 @@ struct SearchBar: View {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
-    }
-}
+//struct ListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListView(gitHubSearchUseCase: )
+//    }
+//}

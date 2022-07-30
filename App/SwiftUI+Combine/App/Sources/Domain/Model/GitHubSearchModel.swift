@@ -16,7 +16,7 @@ public struct GitHubSearchModel: Decodable {
     }
 }
 
-public struct GitHubRepositoryModel: Decodable {
+public struct GitHubRepositoryModel: Decodable, Identifiable {
     
     public let id: String
     public let name: String
