@@ -18,14 +18,7 @@ public final class GitHubRepository: GitHubRepositoryProtocol {
         self.apiClient = apiClient
     }
     
-    public func fetch(keyword: String) async throws -> GitHubSearchModel {
-        //    func requestSomething() async  {
-        //        do {
-        //            self.response = try await self.service.request()
-        //        } catch {
-        //            // some code
-        //        }
-        //    }
+    private func fetch(keyword: String) async throws -> GitHubSearchEntity {
         
         var component = URLComponents(string: self.apiHost)
         component?.path = "/search/repositories"
@@ -46,5 +39,9 @@ public final class GitHubRepository: GitHubRepositoryProtocol {
         component?.queryItems = queryItems
         
         return try await apiClient.perform(method: .get, url: component?.string)
+    }
+    
+    public func fetch(keyword: String) async throws -> GitHubSearchModel {
+        return try await fetch(keyword: keyword).toModel()
     }
 }
