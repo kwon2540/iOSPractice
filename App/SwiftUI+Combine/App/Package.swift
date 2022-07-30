@@ -60,6 +60,9 @@ let package = Package(
         .target(
             name: "Needle",
             dependencies: [
+                "Domain",
+                "Data",
+                "Presentation",
                 .product(name: "NeedleFoundation", package: "needle"),
             ]),
     ]

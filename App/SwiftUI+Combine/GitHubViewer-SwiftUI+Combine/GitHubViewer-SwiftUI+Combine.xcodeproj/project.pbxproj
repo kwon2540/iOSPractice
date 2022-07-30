@@ -87,10 +87,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3321D89D28700F0300637D21 /* Build configuration list for PBXNativeTarget "GitHubViewer-SwiftUI+Combine" */;
 			buildPhases = (
+				33C2948C287A74A7003CD748 /* Needle Run Script */,
 				3321D88B28700F0200637D21 /* Sources */,
 				3321D88C28700F0200637D21 /* Frameworks */,
 				3321D88D28700F0200637D21 /* Resources */,
-				33C2948C287A74A7003CD748 /* Needle Run Script */,
 			);
 			buildRules = (
 			);
