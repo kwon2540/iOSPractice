@@ -9,15 +9,13 @@ import SwiftUI
 
 public struct RootView: View {
     
-    public init() {}
+    private let listBuilder: ListBuilder
+    
+    public init(listBuilder: ListBuilder) {
+        self.listBuilder = listBuilder
+    }
     
     public var body: some View {
-        ListView()
-    }
-}
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
+        listBuilder.listView
     }
 }

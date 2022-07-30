@@ -19,6 +19,9 @@ let package = Package(
         .library(
             name: "Presentation",
             targets: ["Presentation"]),
+        .library(
+            name: "Needle",
+            targets: ["Needle"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -54,5 +57,13 @@ let package = Package(
         .testTarget(
             name: "PresentationTests",
             dependencies: ["Presentation"]),
+        .target(
+            name: "Needle",
+            dependencies: [
+                "Domain",
+                "Data",
+                "Presentation",
+                .product(name: "NeedleFoundation", package: "needle"),
+            ]),
     ]
 )
