@@ -23,13 +23,25 @@ public enum HTTPMethod: String {
 public protocol APIClientProtocol {
     
     func perform<T: Decodable>(method: HTTPMethod, url: String?) async throws -> T
+    
+    func perform(method: HTTPMethod, url: String?) async throws -> Data
+}
+
+extension APIClientProtocol {
+    
+    public func perform<T: Decodable>(method: HTTPMethod, url: String?) async throws -> T {
+        let data = try await perform(method: method, url: url)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(T.self, from: data)
+    }
 }
 
 public class APIClient: APIClientProtocol {
     
     public init() {}
 
-    public func perform<T: Decodable>(method: HTTPMethod, url: String?) async throws -> T {
+    public func perform(method: HTTPMethod, url: String?) async throws -> Data {
         guard let urlString = url, let url = URL(string: urlString) else {
             throw APIError.invalidURL
         }
@@ -38,8 +50,6 @@ public class APIClient: APIClientProtocol {
         request.httpMethod = method.rawValue
 
         let (data, _) = try await URLSession.shared.data(for: request)
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return try decoder.decode(T.self, from: data)
+        return data
     }
 }
